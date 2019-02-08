@@ -1,6 +1,6 @@
 ---
 
-- hosts: debian-ThinkPadT570
+- hosts: ubuntu-ThinkPadP50
 
   vars:
     firefox:
@@ -67,8 +67,6 @@
 #        - https://userstyles.org/styles/155141/dark-gmail-2018-by-dm
     
     packages_add:
-      - acroread:i386
-      - acroread-plugins:i386
       - ansible
       - aptitude
       - aspell-cs
@@ -76,7 +74,6 @@
       - vscodium                # Visual Studio Code
       - curl
       - dconf-editor
-      - deb-multimedia-keyring
       - default-jdk
       - default-jdk-doc
       - deluge-console
@@ -85,20 +82,16 @@
       - docker.io
 #      - dotnet-sdk-2.1.4    # .NET core
       - empathy
+      - evolution
       - fasd
       - ffmpeg
       - firefox
-      - firefox-l10n-cs
-      - firmware-intel-sound
-      - firmware-iwlwifi
-      - firmware-linux
+      - firefox-locale-cs
       - fish
       - flac
       - flatpak
       - fluid-soundfont-gs
       - fonts-noto
-      - fsharp
-      - fwupd-amd64-signed
       - gconf2
       - genisoimage
 #      - gettext             # .NET core
@@ -109,23 +102,16 @@
       - gnome-shell-extension-system-monitor
       - gnome-shell-extension-weather
       - gnome-software-plugin-flatpak
-      - gnome-themes-extra:i386
       - gnome-tweak-tool
       - google-chrome-stable
       - grub-efi-amd64-signed
       - gstreamer1.0-packagekit
       - gstreamer1.0-vaapi
-      - gtk2-engines-murrine
       - guake
       - heimdall-flash-frontend
       - hunspell-cs
       - hyphen-cs
       - latexmk
-      - lib32ncurses5
-      - lib32stdc++6
-      - libatk-adaptor:i386
-      - libcanberra-gtk-module
-      - libcanberra-gtk-module:i386
       - libjson-perl        #ctstream
 #      - liblttng-ust0       # .NET core
       - libpam-fprintd
@@ -136,31 +122,30 @@
       - libxml2-utils
       - liferea
       - mesa-utils
-      - mono-complete
       - mtr-tiny
       - mythes-cs
       - network-manager-openvpn-gnome
-      - npm                 # F# fable
       - openjdk-8-jdk
       - openjfx
       - picard
-      - plymouth
-      - plymouth-themes
       - python-jsonpath-rw
       - python-pip
       - python3-pip
       - qemu-kvm
+      - rhythmbox
       - sbt
       - shim-signed
       - shntool
-      - signal-desktop
+#      - slack-desktop
       - snapper
       - sudo
+      - synaptic
       - texlive
       - texlive-lang-czechslovak
       - texlive-lang-english
       - texlive-luatex
       - texlive-xetex
+      - tracker
       - tree
       - unrar
       - vim-nox
@@ -169,54 +154,27 @@
       - vlc
       - xinput
     packages_repos:
-      - repo: deb http://deb.debian.org/debian testing main contrib non-free
-      - repo: deb http://deb.debian.org/debian testing-updates main contrib non-free
-      - repo: deb http://deb.debian.org/debian unstable main
-      - repo: deb http://security.debian.org/ testing/updates main contrib non-free
-      - repo: deb-src http://deb.debian.org/debian testing main contrib non-free
-      - repo: deb-src http://deb.debian.org/debian testing-updates main contrib non-free
-      - repo: deb-src http://security.debian.org/ testing/updates main contrib non-free
-      - repo: deb http://www.deb-multimedia.org testing main non-free
-        key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA401FF99368FA1F98152DE755C808C2B65558117"
-      - repo: deb-src http://www.deb-multimedia.org testing main non-free
-        key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA401FF99368FA1F98152DE755C808C2B65558117"
-      - repo: deb http://download.mono-project.com/repo/debian wheezy main
-        key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
+      - repo: deb http://cz.archive.ubuntu.com/ubuntu bionic           main universe restricted multiverse
+      - repo: deb http://cz.archive.ubuntu.com/ubuntu bionic-updates   main universe restricted multiverse
+      - repo: deb http://cz.archive.ubuntu.com/ubuntu bionic-backports main universe restricted multiverse
+      - repo: deb http://security.ubuntu.com/ubuntu   bionic-security  main universe restricted multiverse
+
+      - repo: deb-src http://cz.archive.ubuntu.com/ubuntu bionic           main universe restricted multiverse
+      - repo: deb-src http://cz.archive.ubuntu.com/ubuntu bionic-updates   main universe restricted multiverse
+      - repo: deb-src http://cz.archive.ubuntu.com/ubuntu bionic-backports main universe restricted multiverse
+      - repo: deb-src http://security.ubuntu.com/ubuntu   bionic-security  main universe restricted multiverse
+
       - repo: deb https://dl.bintray.com/sbt/debian /
         key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823"
-      - repo: deb https://dl.google.com/linux/chrome/deb/ stable main
+      - repo: deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main
         key: "https://dl.google.com/linux/linux_signing_key.pub"
       - repo: deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ vscodium main
         key: "https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg"
-      - repo: deb https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main
-        key: "https://packages.microsoft.com/keys/microsoft.asc"
-      - repo: deb https://updates.signal.org/desktop/apt xenial main
-        key: "https://updates.signal.org/desktop/apt/keys.asc"
+#      - repo: deb https://packagecloud.io/slacktechnologies/slack/ubuntu/ bionic main
+#        key: "https://packagecloud.io/slacktechnologies/slack/gpgkey"
   
   pre_tasks:
-    - name: Debian repos -- supress unstable packages except Firefox
-      become: yes
-      copy:
-        content: |
-          Package: firefox*
-          Pin: release a=unstable
-          Pin-Priority: 600
-          
-          Package: *
-          Pin: release a=unstable
-          Pin-Priority: 50
-        dest: /etc/apt/preferences.d/unstable
-    
-    - name: Debian repos -- suppress deb-multimedia packages
-      become: yes
-      copy:
-        content: |
-          Package: *
-          Pin: origin *.deb-multimedia.org
-          Pin-Priority: 50
-        dest: /etc/apt/preferences.d/deb-multimedia
-    
-    - name: Debian repos -- i386 architecture
+    - name: Ubuntu repos -- i386 architecture
       become: yes
       command: dpkg --add-architecture i386
     
@@ -226,9 +184,15 @@
         upgrade: yes
         update_cache: yes
         cache_valid_time: 86400 #One day
+    
+    - name: Ubuntu repos -- https support
+      become: yes
+      package:
+        name: apt-transport-https
+        state: present
   
   post_tasks:
-    - name: Debian repos -- remove old sources.list
+    - name: Ubuntu repos -- remove old sources.list
       become: yes
       file:
         path: /etc/apt/sources.list
@@ -243,6 +207,7 @@
     - name: /tmp in RAM -- enable in systemd
       become: yes
       systemd:
+        daemon_reload: yes
         name: tmp.mount
         enabled: yes
     
@@ -255,10 +220,23 @@
         - timeline
         - cleanup
     
-    - name: Download AnotherCountrySunset wallpaper
+    - name: Bin directories -- present
+      file:
+        path: '~/.local/bin'
+        state: directory
+    
+    - name: Bin directories -- in PATH
+      lineinfile:
+        line: 'set -g -x PATH {{ item }} $PATH'
+        dest: ~/.config/fish/conf.d/path.fish
+        create: yes
+      with_items:
+        - "$HOME/.local/bin"
+    
+    - name: Download Avast wallpaper
       get_url:
-        url: http://ftp.gnome.org/pub/GNOME/teams/art.gnome.org/backgrounds/NATURE-AnotherCountrySunset_1920x1200.jpg
-        dest: '~/Pictures/NATURE-AnotherCountrySunset_1920x1200.jpg'
+        url: https://lh5.googleusercontent.com/lA_GLMczOznPQvGuni0A0pFCgjrLprCQP1aTrbVpI3tA0UmsGDPfJDVRm9E48gWGuZHH2jI8v5BSvQQ=w2223-h1288
+        dest: '~/Pictures/10_2016_MKT-6375_Wallpaper_for_tutorial_videos8.jpg'
     
     - name: Fonts -- directory
       file:
@@ -297,7 +275,7 @@
         
         - org.gnome.Terminal.Legacy.Settings new-terminal-mode 'tab'
         
-        - org.gnome.desktop.background picture-uri '~/Pictures/NATURE-AnotherCountrySunset_1920x1200.jpg'
+        - org.gnome.desktop.background picture-uri '~/Pictures/10_2016_MKT-6375_Wallpaper_for_tutorial_videos8.jpg'
         - org.gnome.desktop.datetime automatic-timezone true
         - org.gnome.desktop.interface clock-show-date true
         - org.gnome.desktop.interface clock-show-seconds true
@@ -328,7 +306,7 @@
         - org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Evolution.desktop', 'net.sourceforge.liferea.desktop', 'rhythmbox.desktop', 'org.gnome.Nautilus.desktop']"
         - org.gnome.shell.app-switcher current-workspace-only true
         
-        - org.gnome.shell.extensions.auto-move-windows application-list "['firefox.desktop:1', 'org.gnome.Evolution.desktop:2', 'empathy.desktop:2', 'signal-desktop.desktop:2', 'net.sourceforge.liferea.desktop:3', 'rhythmbox.desktop:4']"
+#        - org.gnome.shell.extensions.auto-move-windows application-list "['firefox.desktop:1', 'org.gnome.Evolution.desktop:2', 'empathy.desktop:2', 'signal-desktop.desktop:2', 'net.sourceforge.liferea.desktop:3', 'rhythmbox.desktop:4']"
         
         - org.gnome.shell.extensions.openweather city '50.0596288,14.446459273258>Praha, Česko >-1'
         - org.gnome.shell.extensions.openweather position-in-panel 'right'
@@ -349,6 +327,11 @@
           Xft.lcdfilter: lcddefault
           Xft.rgba: rgb
         dest: ~/.Xresources
+    
+    - name: Fonts -- directory
+      file:
+        path: '~/.config/fontconfig'
+        state: directory
     
     - name: Fonts -- fonts.conf
       copy:
@@ -377,7 +360,7 @@
         option: "{{ item.option }}"
         value: "{{ item.value }}"
       with_items:
-        - { section: "user", option: "email", value: "ondra.pelech@gmail.com" }
+        - { section: "user", option: "email", value: "ondrej.pelech@avast.com" }
         - { section: "user", option: "name", value: "Ondra Pelech" }
         - { section: "core", option: "excludesfile", value: "~/.gitignore_global" }
     
@@ -393,6 +376,11 @@
         create: yes
       with_items:
         - "*~"
+    
+    - name: Scala -- sbt 0.13 -- directory
+      file:
+        path: '~/.sbt/0.13/plugins'
+        state: directory
     
     - name: Scala -- sbt 0.13 plugins
       copy:
@@ -410,6 +398,11 @@
           addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.0.6" cross CrossVersion.full)
           scalacOptions += "-P:typed-holes:log-level:info"
         dest: "~/.sbt/0.13/build.sbt"
+    
+    - name: Scala -- sbt 1.0 -- directory
+      file:
+        path: '~/.sbt/1.0/plugins'
+        state: directory
     
     - name: Scala -- sbt 1.0 plugins
       copy:
@@ -440,7 +433,7 @@
     
     - name: Ammonite-Shell -- executable
       get_url:
-        url: https://github.com/lihaoyi/Ammonite/releases/download/1.6.0/2.12-1.6.0
+        url: https://github.com/lihaoyi/Ammonite/releases/download/1.6.3/2.12-1.6.3
         dest: '~/.local/bin/amm'
         mode: u+x
     
@@ -491,7 +484,7 @@
         - guake
         - net.sourceforge.liferea
         - rhythmbox
-        - signal-desktop
+#        - slack-desktop
     
 #    - name: Autostart applications -- local
 #      copy:
@@ -516,26 +509,10 @@
       args:
         creates: ~/.local/share/omf/init.fish
     
-    - name: Fish -- oh-my-fish -- theme 'bobthefish'
-      command: omf install bobthefish ; omf theme bobthefish
-      args:
-        creates: ~/.local/share/omf/themes/bobthefish
-    
-    - name: Bin directories -- present
-      file:
-        path: '~/.local/bin'
-        state: directory
-    
-    - name: Bin directories -- in PATH
-      lineinfile:
-        line: 'set -g -x PATH {{ item }} $PATH'
-        dest: ~/.config/fish/conf.d/path.fish
-        create: yes
-      with_items:
-        - "$HOME/.local/bin"
-        - "$HOME/.local/Android/tools/bin"
-        - "$HOME/.local/Android/platform-tools"
-        - "$HOME/.local/Android/emulator"
+#    - name: Fish -- oh-my-fish -- theme 'bobthefish'
+#      command: omf install bobthefish ; omf theme bobthefish
+#      args:
+#        creates: ~/.local/share/omf/themes/bobthefish
     
     - name: Environment variables
       lineinfile:
@@ -543,11 +520,7 @@
         dest: ~/.config/fish/conf.d/variables.fish
         create: yes
       with_items:
-        - { name: "EDITOR", value: "/usr/bin/gedit" }
-        - { name: "ANDROID_HOME", value: "$HOME/.local/Android" }
-        - { name: "ANDROID_NDK_HOME", value: "$HOME/.local/Android/ndk-bundle" }
-#        - { name: "JAVA_OPTIONS", value: "-Dawt.useSystemAAFontSettings=on -XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee" }
-#        - { name: "JAVA_OPTS", value: "-Dawt.useSystemAAFontSettings=on -XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee" }
+        - { name: "EDITOR", value: "/usr/bin/vim" }
     
     - name: sudo on Wayland
       copy:
@@ -564,62 +537,6 @@
       command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
       args:
         creates: /var/lib/flatpak/appstream/flathub
-    
-    - name: GRUB -- widescreen
-      become: yes
-      lineinfile:
-        dest: /etc/default/grub
-        regexp: '^GRUB_GFXMODE='
-        insertafter: '^#GRUB_GFXMODE='
-        line: 'GRUB_GFXMODE=1920x1080x32'
-      register: grubconfigwidescreen
-    
-    - name: Plymouth -- modesetting kernel modules -- intel_agp
-      become: yes
-      lineinfile:
-        dest: /etc/initramfs-tools/modules
-        line: intel_agp
-      register: kernelmodulesintelagp
-    
-    - name: Plymouth -- modesetting kernel modules -- drm
-      become: yes
-      lineinfile:
-        dest: /etc/initramfs-tools/modules
-        insertafter: intel_agp
-        line: drm
-      register: kernelmodulesdrm
-    
-    - name: Plymouth -- modesetting kernel modules -- i915
-      become: yes
-      lineinfile:
-        dest: /etc/initramfs-tools/modules
-        regexp: '^i915 '
-        line: 'i915 modeset=1'
-      register: kernelmodulesi915
-    
-    - name: Plymouth -- GRUB config
-      become: yes
-      lineinfile:
-        dest: /etc/default/grub
-        regexp: '^GRUB_CMDLINE_LINUX_DEFAULT='
-        line: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"'
-      register: grubconfigplymouth
-    
-    - name: Plymouth -- set theme
-      become: yes
-      command: plymouth-set-default-theme -R softwaves
-      when: kernelmodulesintelagp.changed or kernelmodulesdrm.changed or kernelmodulesi915.changed
-    
-    - name: GRUB -- update
-      become: yes
-      command: update-grub2
-      when: grubconfigwidescreen.changed or grubconfigplymouth.changed
-    
-    - name: Remove Firefox ESR
-      become: yes
-      package:
-        name: firefox-esr
-        state: absent
   
   roles:
     - name: zerotao.packages
