@@ -1,0 +1,631 @@
+---
+
+- hosts: debian-ThinkPadT570
+
+  vars:
+    firefox:
+
+#      <profile>/chrome/userChrome.css
+#
+#      @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+#      #TabsToolbar {
+#          visibility: collapse !important;
+#      }
+#      #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+#        display: none;
+#      }
+
+      addons:
+#        - url: https://addons.mozilla.org/en-US/firefox/addon/https-everywhere
+#        - url: https://addons.mozilla.org/en-US/firefox/addon/ublock-origin
+#        - url: https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab
+#        - url: https://addons.mozilla.org/en-US/firefox/addon/remove-google-redirections
+#        - url: https://addons.mozilla.org/en-US/firefox/addon/styl-us/
+#        - url: https://addons.mozilla.org/en-US/firefox/addon/reddit-enhancement-suite
+#        - url: https://addons.mozilla.org/en-US/firefox/addon/hnes
+#        - url: https://addons.mozilla.org/en-US/firefox/addon/gesturefy
+#        - url: https://addons.mozilla.org/en-US/firefox/addon/gnome-download-notifications
+#        - url: https://addons.mozilla.org/en-US/firefox/addon/torrentz2-magnet-links
+#        - url: https://addons.mozilla.org/en-US/firefox/addon/violentmonkey
+#        - url: https://addons.mozilla.org/en-US/firefox/addon/json-lite
+#        - url: https://addons.mozilla.org/en-US/firefox/addon/pretty-xml
+#        - url: https://addons.mozilla.org/en-US/firefox/addon/search_by_image
+      prefs:
+        - name: toolkit.cosmeticAnimations.enabled
+          value: false
+        - name: browser.startup.page
+          value: 3
+        - name: accessibility.typeaheadfind
+          value: true
+        - name: browser.sessionstore.restore_on_demand
+          value: false
+        - name: dom.ipc.processCount
+          value: 99
+        - name: dom.ipc.processCount.extension
+          value: 1
+        - name: dom.ipc.processCount.file
+          value: 99
+        - name: dom.ipc.processCount.webLargeAllocation
+          value: 99
+        - name: middlemouse.contentLoadURL
+          value: false
+        - name: browser.disableResetPrompt
+          value: true
+        - name: lightweightThemes.selectedThemeID
+          value: firefox-compact-dark@mozilla.org
+        - name: widget.chrome.allow-gtk-dark-theme
+          value: true
+      styles:
+#        - https://userstyles.org/styles/141833/userstyles-dark-2017
+#        - https://userstyles.org/styles/133890/dark-hackernews
+#        - https://userstyles.org/styles/144028/google-clean-dark
+#        - https://github.com/StylishThemes/GitHub-Dark/raw/master/github-dark.user.css
+#        - https://userstyles.org/styles/108591/github-wide
+#        - https://github.com/StylishThemes/Wikipedia-Dark/raw/master/wikipedia-dark.user.css
+#        - https://userstyles.org/styles/159780/dark-mozilla-add-ons-amo
+#        - https://github.com/StylishThemes/StackOverflow-Dark/raw/master/stackoverflow-dark.user.css
+#        - https://userstyles.org/styles/155141/dark-gmail-2018-by-dm
+    
+    packages_add:
+      - acroread:i386
+      - acroread-plugins:i386
+      - ansible
+      - aptitude
+      - aspell-cs
+      - bash-completion
+      - vscodium                # Visual Studio Code
+      - curl
+      - dconf-editor
+      - deb-multimedia-keyring
+      - default-jdk
+      - default-jdk-doc
+      - deluge-console
+      - deluge-gtk
+      - dnsutils
+      - docker.io
+#      - dotnet-sdk-2.1.4    # .NET core
+      - empathy
+      - fasd
+      - ffmpeg
+      - firefox
+      - firefox-l10n-cs
+      - firmware-intel-sound
+      - firmware-iwlwifi
+      - firmware-linux
+      - fish
+      - flac
+      - flatpak
+      - fluid-soundfont-gs
+      - fonts-noto
+      - fsharp
+      - fwupd-amd64-signed
+      - gconf2
+      - genisoimage
+#      - gettext             # .NET core
+      - git
+      - gitg
+      - glances
+      - gnome-shell-extension-move-clock
+      - gnome-shell-extension-system-monitor
+      - gnome-shell-extension-weather
+      - gnome-software-plugin-flatpak
+      - gnome-themes-extra:i386
+      - gnome-tweak-tool
+      - google-chrome-stable
+      - grub-efi-amd64-signed
+      - gstreamer1.0-packagekit
+      - gstreamer1.0-vaapi
+      - gtk2-engines-murrine
+      - guake
+      - heimdall-flash-frontend
+      - hunspell-cs
+      - hyphen-cs
+      - latexmk
+      - lib32ncurses5
+      - lib32stdc++6
+      - libatk-adaptor:i386
+      - libcanberra-gtk-module
+      - libcanberra-gtk-module:i386
+      - libjson-perl        #ctstream
+#      - liblttng-ust0       # .NET core
+      - libpam-fprintd
+      - libreoffice-help-cs
+      - libreoffice-l10n-cs
+#      - libunwind8          # .NET core
+      - libxml-xpath-perl   #ctstream
+      - libxml2-utils
+      - liferea
+      - mesa-utils
+      - mono-complete
+      - mtr-tiny
+      - mythes-cs
+      - network-manager-openvpn-gnome
+      - npm                 # F# fable
+      - openjdk-8-jdk
+      - openjfx
+      - picard
+      - plymouth
+      - plymouth-themes
+      - python-jsonpath-rw
+      - python-pip
+      - python3-pip
+      - qemu-kvm
+      - sbt
+      - shim-signed
+      - shntool
+      - signal-desktop
+      - snapper
+      - sudo
+      - texlive
+      - texlive-lang-czechslovak
+      - texlive-lang-english
+      - texlive-luatex
+      - texlive-xetex
+      - tree
+      - unrar
+      - vim-nox
+      - virt-manager
+      - visualvm
+      - vlc
+      - xinput
+    packages_repos:
+      - repo: deb http://deb.debian.org/debian testing main contrib non-free
+      - repo: deb http://deb.debian.org/debian testing-updates main contrib non-free
+      - repo: deb http://deb.debian.org/debian unstable main
+      - repo: deb http://security.debian.org/ testing/updates main contrib non-free
+      - repo: deb-src http://deb.debian.org/debian testing main contrib non-free
+      - repo: deb-src http://deb.debian.org/debian testing-updates main contrib non-free
+      - repo: deb-src http://security.debian.org/ testing/updates main contrib non-free
+      - repo: deb http://www.deb-multimedia.org testing main non-free
+        key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA401FF99368FA1F98152DE755C808C2B65558117"
+      - repo: deb-src http://www.deb-multimedia.org testing main non-free
+        key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA401FF99368FA1F98152DE755C808C2B65558117"
+      - repo: deb http://download.mono-project.com/repo/debian wheezy main
+        key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
+      - repo: deb https://dl.bintray.com/sbt/debian /
+        key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823"
+      - repo: deb https://dl.google.com/linux/chrome/deb/ stable main
+        key: "https://dl.google.com/linux/linux_signing_key.pub"
+      - repo: deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ vscodium main
+        key: "https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg"
+      - repo: deb https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main
+        key: "https://packages.microsoft.com/keys/microsoft.asc"
+      - repo: deb https://updates.signal.org/desktop/apt xenial main
+        key: "https://updates.signal.org/desktop/apt/keys.asc"
+  
+  pre_tasks:
+    - name: Debian repos -- supress unstable packages except Firefox
+      become: yes
+      copy:
+        content: |
+          Package: firefox*
+          Pin: release a=unstable
+          Pin-Priority: 600
+          
+          Package: *
+          Pin: release a=unstable
+          Pin-Priority: 50
+        dest: /etc/apt/preferences.d/unstable
+    
+    - name: Debian repos -- suppress deb-multimedia packages
+      become: yes
+      copy:
+        content: |
+          Package: *
+          Pin: origin *.deb-multimedia.org
+          Pin-Priority: 50
+        dest: /etc/apt/preferences.d/deb-multimedia
+    
+    - name: Debian repos -- i386 architecture
+      become: yes
+      command: dpkg --add-architecture i386
+    
+    - name: Update and upgrade apt packages
+      become: true
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 86400 #One day
+  
+  post_tasks:
+    - name: Debian repos -- remove old sources.list
+      become: yes
+      file:
+        path: /etc/apt/sources.list
+        state: absent
+
+    - name: /tmp in RAM -- tmp.mount available
+      become: yes
+      copy:
+        src: /usr/share/systemd/tmp.mount
+        dest: /etc/systemd/system/
+    
+    - name: /tmp in RAM -- enable in systemd
+      become: yes
+      systemd:
+        name: tmp.mount
+        enabled: yes
+    
+    - name: Snapper -- enable timelines and cleanup
+      become: yes
+      systemd:
+        name: snapper-{{ item }}.timer
+        enabled: yes
+      with_items:
+        - timeline
+        - cleanup
+    
+    - name: Download AnotherCountrySunset wallpaper
+      get_url:
+        url: http://ftp.gnome.org/pub/GNOME/teams/art.gnome.org/backgrounds/NATURE-AnotherCountrySunset_1920x1200.jpg
+        dest: '~/Pictures/NATURE-AnotherCountrySunset_1920x1200.jpg'
+    
+    - name: Fonts -- directory
+      file:
+        path: '~/.local/share/fonts'
+        state: directory
+    
+    - name: Fonts -- Fira Code -- download
+      get_url:
+        url: 'https://github.com/tonsky/FiraCode/raw/master/distr/ttf/FiraCode-{{ item }}.ttf'
+        dest: '~/.local/share/fonts/FiraCode-{{ item }}.ttf'
+      with_items:
+        - Bold
+        - Light
+        - Medium
+        - Regular
+        - Retina
+    
+    - name: gconf
+      gconftool2:
+        key: '{{ item.key }}'
+        value: '{{ item.value }}'
+        value_type: '{{ item.type }}'
+        state: present
+      with_items:
+        - { key: /apps/guake/keybindings/global/show_hide, value: "<Shift>space", type: string }
+
+    - name: gsettings
+      command: gsettings set {{ item }}
+      with_items:
+        - net.sf.liferea default-view-mode 1
+        - net.sf.liferea disable-toolbar true
+        - net.sf.liferea.plugins active-plugins "['media-player', 'gnome-keyring']"
+        
+        - org.freedesktop.Tracker.Extract sched-idle 'always'
+        - org.freedesktop.Tracker.Miner.Files sched-idle 'always'
+        
+        - org.gnome.Terminal.Legacy.Settings new-terminal-mode 'tab'
+        
+        - org.gnome.desktop.background picture-uri '~/Pictures/NATURE-AnotherCountrySunset_1920x1200.jpg'
+        - org.gnome.desktop.datetime automatic-timezone true
+        - org.gnome.desktop.interface clock-show-date true
+        - org.gnome.desktop.interface clock-show-seconds true
+        - org.gnome.desktop.interface document-font-name 'DejaVu Sans 12'
+        - org.gnome.desktop.interface font-name 'DejaVu Sans 12'
+        - org.gnome.desktop.interface monospace-font-name 'Fira Code Light 12'
+        - org.gnome.desktop.wm.preferences titlebar-font 'DejaVu Sans Bold 12'
+        
+        - org.gnome.gedit.preferences.editor auto-indent true
+        - org.gnome.gedit.preferences.editor bracket-matching true
+        - org.gnome.gedit.preferences.editor display-line-numbers true
+        - org.gnome.gedit.preferences.editor display-overview-map true
+        - org.gnome.gedit.preferences.editor display-right-margin true
+        - org.gnome.gedit.preferences.editor highlight-current-line true
+        - org.gnome.gedit.preferences.editor insert-spaces true
+        - org.gnome.gedit.preferences.editor scheme 'oblivion'
+        - org.gnome.gedit.preferences.editor tabs-size 2
+        - org.gnome.gedit.preferences.ui show-tabs-mode 'auto'
+        
+        - org.gnome.rhythmbox.player use-xfade-backend true
+        
+        - org.gnome.settings-daemon.plugins.xsettings antialiasing 'rgba'
+        - org.gnome.settings-daemon.plugins.xsettings hinting 'full'
+        
+        - org.gnome.settings-daemon.plugins.color night-light-enabled true
+        
+        - org.gnome.shell enabled-extensions "['Move_Clock@jonathan.bluemosh.com', 'openweather-extension@jenslody.de', 'system-monitor@paradoxxx.zero.gmail.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com']"
+        - org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Evolution.desktop', 'net.sourceforge.liferea.desktop', 'rhythmbox.desktop', 'org.gnome.Nautilus.desktop']"
+        - org.gnome.shell.app-switcher current-workspace-only true
+        
+        - org.gnome.shell.extensions.auto-move-windows application-list "['firefox.desktop:1', 'org.gnome.Evolution.desktop:2', 'empathy.desktop:2', 'signal-desktop.desktop:2', 'net.sourceforge.liferea.desktop:3', 'rhythmbox.desktop:4']"
+        
+        - org.gnome.shell.extensions.openweather city '50.0596288,14.446459273258>Praha, Česko >-1'
+        - org.gnome.shell.extensions.openweather position-in-panel 'right'
+        - org.gnome.shell.extensions.openweather pressure-unit 'kPa'
+        - org.gnome.shell.extensions.openweather unit 'celsius'
+        - org.gnome.shell.extensions.openweather wind-speed-unit 'm/s'
+        
+        - org.gtk.Settings.FileChooser sort-directories-first true
+    
+    - name: Fonts -- Xresources
+      copy:
+        content: |
+          Xft.autohint: 0
+          Xft.antialias: 1
+          Xft.dpi: 96
+          Xft.hinting: 1
+          Xft.hintstyle: hintfull
+          Xft.lcdfilter: lcddefault
+          Xft.rgba: rgb
+        dest: ~/.Xresources
+    
+    - name: Fonts -- fonts.conf
+      copy:
+        content: |
+          <match target="font">
+            <edit mode="assign" name="rgba"><const>rgb</const></edit>
+            <edit mode="assign" name="autohint"><bool>false</bool></edit>
+            <edit mode="assign" name="hinting"><bool>true</bool></edit>
+            <edit mode="assign" name="hintstyle"><const>hintfull</const></edit>
+            <edit mode="assign" name="antialias"><bool>true</bool></edit>
+            <edit mode="assign" name="lcdfilter"><const>lcddefault</const></edit>
+          </match>
+        dest: ~/.config/fontconfig/fonts.conf
+    
+    - name: Global GTK+ dark theme
+      ini_file:
+        dest: ~/.config/gtk-3.0/settings.ini
+        section: Settings
+        option: gtk-application-prefer-dark-theme
+        value: 1
+    
+    - name: Git -- config
+      ini_file:
+        dest: ~/.gitconfig
+        section: "{{ item.section }}"
+        option: "{{ item.option }}"
+        value: "{{ item.value }}"
+      with_items:
+        - { section: "user", option: "email", value: "ondra.pelech@gmail.com" }
+        - { section: "user", option: "name", value: "Ondra Pelech" }
+        - { section: "core", option: "excludesfile", value: "~/.gitignore_global" }
+    
+    - name: Git -- ignore
+      get_url:
+        url: https://gist.githubusercontent.com/jbenner-radham/7893563/raw/.gitignore
+        dest: ~/.gitignore_global
+    
+    - name: Git -- ignore customizations
+      lineinfile:
+        line: "{{ item }}"
+        dest: ~/.gitignore_global
+        create: yes
+      with_items:
+        - "*~"
+    
+    - name: Scala -- sbt 0.13 plugins
+      copy:
+        content: |
+          addSbtPlugin("org.duhemm" % "sbt-errors-summary" % "0.6.0")
+          addSbtPlugin("com.softwaremill.clippy" % "plugin-sbt" % "0.5.3")
+        dest: ~/.sbt/0.13/plugins/plugins.sbt
+    
+    - name: Scala -- sbt 0.13 configuration
+      copy:
+        content: |
+          import com.softwaremill.clippy.ClippySbtPlugin._ // needed in global configuration only
+          clippyColorsEnabled := true
+          reporterConfig := reporterConfig.value.withShortenPaths(false)
+          addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.0.6" cross CrossVersion.full)
+          scalacOptions += "-P:typed-holes:log-level:info"
+        dest: "~/.sbt/0.13/build.sbt"
+    
+    - name: Scala -- sbt 1.0 plugins
+      copy:
+        content: |
+          addSbtPlugin("org.duhemm" % "sbt-errors-summary" % "0.6.3")
+          addSbtPlugin("com.softwaremill.clippy" % "plugin-sbt" % "0.5.3")
+        dest: ~/.sbt/1.0/plugins/plugins.sbt
+    
+    - name: Scala -- sbt 1.0 configuration
+      copy:
+        content: |
+          clippyColorsEnabled := true
+          reporterConfig := reporterConfig.value.withShortenPaths(false)
+          addCompilerPlugin("io.tryp" % "splain" % "0.3.5" cross CrossVersion.patch)
+          addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.0.6" cross CrossVersion.full)
+          scalacOptions += "-P:typed-holes:log-level:info"
+        dest: "~/.sbt/1.0/build.sbt"
+    
+    - name: Ammonite-Shell -- directory
+      file:
+        path: '~/.ammonite'
+        state: directory
+    
+    - name: Ammonite-Shell -- config
+      get_url:
+        url: https://git.io/vHaKQ
+        dest: '~/.ammonite/predef.sc'
+    
+    - name: Ammonite-Shell -- executable
+      get_url:
+        url: https://github.com/lihaoyi/Ammonite/releases/download/1.6.0/2.12-1.6.0
+        dest: '~/.local/bin/amm'
+        mode: u+x
+    
+    - name: Vim -- no visual
+      copy:
+        content: |
+          set mouse-=a
+          syntax on
+        dest: ~/.vimrc
+    
+    - name: VSCodium -- config directory
+      file:
+        path: '~/.config/VSCodium/User'
+        state: directory
+    
+    - name: VSCodium -- settings.json
+      copy:
+        content: |
+          {
+              "editor.fontFamily": "'Fira Code Light', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+              "editor.fontLigatures": true,
+              "editor.fontSize": 16
+          }
+        dest: ~/.config/VSCodium/User/settings.json
+    
+    - name: dpath -- install with pip (Python) # to enable json module (from jpnewman.json)
+      become: yes
+      pip:
+        name: dpath
+        state: latest
+        executable: pip2
+    
+    - name: youtube-dl -- install with pip (Python)
+      become: yes
+      pip:
+        name: youtube-dl
+        state: latest
+        executable: pip
+    
+    - name: Autostart applications -- global
+      copy:
+        src: /usr/share/applications/{{ item }}.desktop
+        dest: ~/.config/autostart/
+      with_items:
+        - empathy
+        - org.gnome.Evolution
+        - firefox
+        - guake
+        - net.sourceforge.liferea
+        - rhythmbox
+        - signal-desktop
+    
+#    - name: Autostart applications -- local
+#      copy:
+#        src: ~/.local/share/applications/{{ item }}.desktop
+#        dest: ~/.config/autostart/
+#      with_items:
+    
+    - name: Set default shell and groups
+      become: yes
+      user:
+        name: ondra
+        shell: /usr/bin/fish
+        groups:
+          - docker
+          - kvm
+          - libvirt
+          - libvirt-qemu
+        append: yes
+    
+    - name: Fish -- oh-my-fish -- install
+      shell: curl -L https://get.oh-my.fish | fish /dev/stdin --noninteractive --yes
+      args:
+        creates: ~/.local/share/omf/init.fish
+    
+    - name: Fish -- oh-my-fish -- theme 'bobthefish'
+      command: omf install bobthefish ; omf theme bobthefish
+      args:
+        creates: ~/.local/share/omf/themes/bobthefish
+    
+    - name: Bin directories -- present
+      file:
+        path: '~/.local/bin'
+        state: directory
+    
+    - name: Bin directories -- in PATH
+      lineinfile:
+        line: 'set -g -x PATH {{ item }} $PATH'
+        dest: ~/.config/fish/conf.d/path.fish
+        create: yes
+      with_items:
+        - "$HOME/.local/bin"
+        - "$HOME/.local/Android/tools/bin"
+        - "$HOME/.local/Android/platform-tools"
+        - "$HOME/.local/Android/emulator"
+    
+    - name: Environment variables
+      lineinfile:
+        line: 'set -g -x {{ item.name }} "{{ item.value }}"'
+        dest: ~/.config/fish/conf.d/variables.fish
+        create: yes
+      with_items:
+        - { name: "EDITOR", value: "/usr/bin/gedit" }
+        - { name: "ANDROID_HOME", value: "$HOME/.local/Android" }
+        - { name: "ANDROID_NDK_HOME", value: "$HOME/.local/Android/ndk-bundle" }
+#        - { name: "JAVA_OPTIONS", value: "-Dawt.useSystemAAFontSettings=on -XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee" }
+#        - { name: "JAVA_OPTS", value: "-Dawt.useSystemAAFontSettings=on -XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee" }
+    
+    - name: sudo on Wayland
+      copy:
+        content: |
+          #!/bin/bash
+          xhost +SI:localuser:root
+          sudo $1
+          xhost -SI:localuser:root
+          xhost
+        dest: ~/.local/bin/wsudo
+        mode: u+x
+    
+    - name: Flatpack -- add Flathub
+      command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+      args:
+        creates: /var/lib/flatpak/appstream/flathub
+    
+    - name: GRUB -- widescreen
+      become: yes
+      lineinfile:
+        dest: /etc/default/grub
+        regexp: '^GRUB_GFXMODE='
+        insertafter: '^#GRUB_GFXMODE='
+        line: 'GRUB_GFXMODE=1920x1080x32'
+      register: grubconfigwidescreen
+    
+    - name: Plymouth -- modesetting kernel modules -- intel_agp
+      become: yes
+      lineinfile:
+        dest: /etc/initramfs-tools/modules
+        line: intel_agp
+      register: kernelmodulesintelagp
+    
+    - name: Plymouth -- modesetting kernel modules -- drm
+      become: yes
+      lineinfile:
+        dest: /etc/initramfs-tools/modules
+        insertafter: intel_agp
+        line: drm
+      register: kernelmodulesdrm
+    
+    - name: Plymouth -- modesetting kernel modules -- i915
+      become: yes
+      lineinfile:
+        dest: /etc/initramfs-tools/modules
+        regexp: '^i915 '
+        line: 'i915 modeset=1'
+      register: kernelmodulesi915
+    
+    - name: Plymouth -- GRUB config
+      become: yes
+      lineinfile:
+        dest: /etc/default/grub
+        regexp: '^GRUB_CMDLINE_LINUX_DEFAULT='
+        line: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"'
+      register: grubconfigplymouth
+    
+    - name: Plymouth -- set theme
+      become: yes
+      command: plymouth-set-default-theme -R softwaves
+      when: kernelmodulesintelagp.changed or kernelmodulesdrm.changed or kernelmodulesi915.changed
+    
+    - name: GRUB -- update
+      become: yes
+      command: update-grub2
+      when: grubconfigwidescreen.changed or grubconfigplymouth.changed
+    
+    - name: Remove Firefox ESR
+      become: yes
+      package:
+        name: firefox-esr
+        state: absent
+  
+  roles:
+    - name: zerotao.packages
+      become: yes
+    
+    - alzadude.firefox
+    
+    - jpnewman.json
+
