@@ -1,5 +1,5 @@
-# ansible-debian-ThinkPadT570
-Ansible provisioning of Debian testing on ThinkPad T570
+# ansible-ubuntu-ThinkPadP50
+Ansible provisioning of Ubuntu 18.04 on ThinkPad P50
 
 ## Instructions
 
