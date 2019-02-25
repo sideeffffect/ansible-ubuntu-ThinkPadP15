@@ -31,6 +31,7 @@
 #        - url: https://addons.mozilla.org/en-US/firefox/addon/pretty-xml
 #        - url: https://addons.mozilla.org/en-US/firefox/addon/search_by_image
 #        - url: https://addons.mozilla.org/en-US/firefox/addon/gnome-shell-integration
+#        - url: https://addons.mozilla.org/en-US/firefox/addon/fix-dark-theme-input-boxes
       prefs:
         - name: toolkit.cosmeticAnimations.enabled
           value: false
@@ -151,7 +152,7 @@
       - sbt
       - shim-signed
       - shntool
-#      - slack-desktop
+      - slack-desktop
       - snapper
       - sudo
       - synaptic
@@ -187,8 +188,8 @@
         key: "https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg"
       - repo: deb http://ppa.launchpad.net/rpardini/adoptopenjdk/ubuntu bionic main
         key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xFCF70428AE7CE011515CB18ED8533594C2DEDF3E"
-#      - repo: deb https://packagecloud.io/slacktechnologies/slack/ubuntu/ bionic main
-#        key: "https://packagecloud.io/slacktechnologies/slack/gpgkey"
+      - repo: deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main
+        key: "https://packagecloud.io/slacktechnologies/slack/gpgkey"
   
   pre_tasks:
     - name: Ubuntu repos -- i386 architecture
@@ -214,14 +215,19 @@
       copy:
         content: ""
         dest: /etc/apt/sources.list
-  
-  post_tasks:
+    
     - name: Ubuntu repos -- remove google-chrome.list
       become: yes
       copy:
         content: ""
         dest: /etc/apt/sources.list.d/google-chrome.list
-
+    
+    - name: Ubuntu repos -- remove slack.list
+      become: yes
+      copy:
+        content: ""
+        dest: /etc/apt/sources.list.d/slack.list
+    
     - name: /tmp in RAM -- tmp.mount available
       become: yes
       copy:
