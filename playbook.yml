@@ -426,7 +426,7 @@
       copy:
         content: |
           addSbtPlugin("org.duhemm" % "sbt-errors-summary" % "0.6.0")
-          addSbtPlugin("com.softwaremill.clippy" % "plugin-sbt" % "0.5.3")
+          addSbtPlugin("com.softwaremill.clippy" % "plugin-sbt" % "0.6.0")
         dest: ~/.sbt/0.13/plugins/plugins.sbt
     
     - name: Scala -- sbt 0.13 configuration
@@ -435,7 +435,7 @@
           import com.softwaremill.clippy.ClippySbtPlugin._ // needed in global configuration only
           clippyColorsEnabled := true
           reporterConfig := reporterConfig.value.withShortenPaths(false)
-          addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.0.6" cross CrossVersion.full)
+          addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.0.7" cross CrossVersion.full)
           scalacOptions += "-P:typed-holes:log-level:info"
         dest: "~/.sbt/0.13/build.sbt"
     
@@ -448,7 +448,7 @@
       copy:
         content: |
           addSbtPlugin("org.duhemm" % "sbt-errors-summary" % "0.6.3")
-          addSbtPlugin("com.softwaremill.clippy" % "plugin-sbt" % "0.5.3")
+          addSbtPlugin("com.softwaremill.clippy" % "plugin-sbt" % "0.6.0")
         dest: ~/.sbt/1.0/plugins/plugins.sbt
     
     - name: Scala -- sbt 1.0 configuration
@@ -456,8 +456,8 @@
         content: |
           clippyColorsEnabled := true
           reporterConfig := reporterConfig.value.withShortenPaths(false)
-          addCompilerPlugin("io.tryp" % "splain" % "0.3.5" cross CrossVersion.patch)
-          addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.0.6" cross CrossVersion.full)
+          addCompilerPlugin("io.tryp" % "splain" % "0.4.0" cross CrossVersion.patch)
+          addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.0.7" cross CrossVersion.full)
           scalacOptions += "-P:typed-holes:log-level:info"
         dest: "~/.sbt/1.0/build.sbt"
     
