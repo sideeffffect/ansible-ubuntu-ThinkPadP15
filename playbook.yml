@@ -127,6 +127,7 @@
       - libjson-perl        #ctstream
 #      - liblttng-ust0       # .NET core
       - libpam-fprintd
+      - libreoffice
       - libreoffice-help-cs
       - libreoffice-l10n-cs
 #      - libunwind8          # .NET core
@@ -436,7 +437,7 @@
           clippyColorsEnabled := true
           reporterConfig := reporterConfig.value.withShortenPaths(false)
           addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.0.7" cross CrossVersion.full)
-          scalacOptions += "-P:typed-holes:log-level:info"
+          scalacOptions += "-P:typed-holes:log-level:warn"
         dest: "~/.sbt/0.13/build.sbt"
     
     - name: Scala -- sbt 1.0 -- directory
@@ -458,71 +459,26 @@
           reporterConfig := reporterConfig.value.withShortenPaths(false)
           addCompilerPlugin("io.tryp" % "splain" % "0.4.0" cross CrossVersion.patch)
           addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.0.7" cross CrossVersion.full)
-          scalacOptions += "-P:typed-holes:log-level:info"
+          scalacOptions += "-P:typed-holes:log-level:warn"
         dest: "~/.sbt/1.0/build.sbt"
     
     - name: Scala -- Gradle configuration
       copy:
         content: |
-          List<String> globalScalacPlugins = [
-              'org.spire-math:kind-projector_?:0.9.4',
-              'com.olegpy:better-monadic-for_?:0.3.0-M4',
-              'com.github.cb372:scala-typed-holes_??:0.0.7',
-              'io.tryp:splain_??:0.4.0'
-          ]
-          List<String> globalScalacOptions = [
-              "-P:typed-holes:log-level:info"
-          ]
-          def addGlobalCompilerPlugins(Project project, String taskName, List<String> pluginDependencies) {
-              def scalaCompileTask = project.tasks.getByName(taskName)
-              if (scalaCompileTask) {
-                  def scalaCompileOptions = scalaCompileTask.scalaCompileOptions
-                  if (scalaCompileOptions.additionalParameters == null) {
-                      scalaCompileOptions.additionalParameters = new ArrayList<>()
-                  }
-                  project.configurations.create("globalScalaPlugins_$taskName").withDependencies { deps ->
-                      pluginDependencies.forEach { n ->
-                          println("Adding scalac plugin to ${project.name}:$taskName task: $n")
-                          deps.add(project.dependencies.create(n))
+          allprojects {
+              afterEvaluate {
+                  if(project.pluginManager.hasPlugin('avast-scala')) {
+                      dependencies {
+                          scalac 'com.github.cb372:scala-typed-holes_??:0.0.7'
+                          scalac 'io.tryp:splain_??:0.4.0'
                       }
-                      deps
-                  }.resolve().forEach { path ->
-                      scalaCompileOptions.additionalParameters.add("-Xplugin:${path.canonicalPath}".toString())
-                  }
-              }
-          }
-          def addGlobalCompilerOptions(Project project, String taskName, List<String> options) {
-              def scalaCompileTask = project.tasks.getByName(taskName)
-              if (scalaCompileTask) {
-                  def scalaCompileOptions = scalaCompileTask.scalaCompileOptions
-                  if (scalaCompileOptions.additionalParameters == null) {
-                      scalaCompileOptions.additionalParameters = new ArrayList<>()
-                  }
-                  options.forEach { option ->
-                      scalaCompileOptions.additionalParameters.add(option)
-                  }
-              }
-          }
-          projectsEvaluated {
-              rootProject.allprojects {
-                  def avastExt = getExtensions().findByName('avast')
-                  if (avastExt) {
-                      def scalaExtension = avastExt.getExtensions().findByName('scala')
-                      if (scalaExtension) {
-                          scalaExtension.crossVersions.forEach { scalaVersion ->
-                              String fullScalaVersion = scalaExtension.versionCatalog.catalog[scalaExtension.version]
-                              List<String> resolvedDependencies = globalScalacPlugins.collect { n ->
-                                  n.replace("_??", "_$fullScalaVersion").replace("_?", "_$scalaVersion")
-                              }
-                              if (scalaVersion == scalaExtension.version) {
-                                  addGlobalCompilerPlugins(project, "compileScala", resolvedDependencies)
-                                  addGlobalCompilerOptions(project, "compileScala", globalScalacOptions)
-                                  addGlobalCompilerPlugins(project, "compileTestScala", resolvedDependencies)
-                              } else {
-                                  addGlobalCompilerPlugins(project, "compile${scalaVersion.replace('.', '')}Scala", resolvedDependencies)
-                                  addGlobalCompilerPlugins(project, "compile${scalaVersion.replace('.', '')}TestScala", resolvedDependencies)
-                              }
+
+                      tasks.withType(ScalaCompile) {
+                          if (scalaCompileOptions.additionalParameters == null) {
+                              scalaCompileOptions.additionalParameters = new ArrayList<>()
                           }
+
+                          scalaCompileOptions.additionalParameters += ['-P:typed-holes:log-level:warn']
                       }
                   }
               }
