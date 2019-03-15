@@ -263,6 +263,7 @@
         create: yes
       with_items:
         - "$HOME/.local/bin"
+        - "$HOME/.cargo/bin"
     
     - name: Download Avast wallpaper
       get_url:
@@ -346,8 +347,12 @@
         
         - org.gtk.Settings.FileChooser sort-directories-first true
         
-        - org.gnome.desktop.wm.keybindings switch-to-workspace-left '[]'
-        - org.gnome.desktop.wm.keybindings switch-to-workspace-right '[]'
+        - org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Toggle Guake'
+        - org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Shift>space'
+        - org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'guake -t'
+        
+#        - org.gnome.desktop.wm.keybindings switch-to-workspace-left '[]'
+#        - org.gnome.desktop.wm.keybindings switch-to-workspace-right '[]'
     
     - name: gsettings -- with schema
       command: gsettings --schemadir {{ item.schemaDir }} set {{ item.schema }} {{ item.key }} {{ item.value}}
