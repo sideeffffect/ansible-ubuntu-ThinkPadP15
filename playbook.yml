@@ -91,6 +91,7 @@
 #      - dotnet-sdk-2.1.4    # .NET core
       - empathy
       - evolution
+      - exuberant-ctags       # Python language server
       - fasd
       - ffmpeg
       - firefox
@@ -153,6 +154,7 @@
       - python-jsonpath-rw
       - python-pip
       - python3-pip
+      - python3-venv
       - qemu-kvm
       - rhythmbox
       - sbt
