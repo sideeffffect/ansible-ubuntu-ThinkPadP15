@@ -432,6 +432,9 @@
         create: yes
       with_items:
         - "*~"
+        - ".vscode"
+        - ".metals"
+        - ".bloop"
     
     - name: Scala -- sbt 0.13 -- directory
       file:
