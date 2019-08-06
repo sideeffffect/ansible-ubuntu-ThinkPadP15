@@ -128,6 +128,7 @@
       - jq
       - latexmk
       - libcanberra-gtk-module
+      - libgconf-2-4 # Postman
       - libio-aio-perl      # Perl
       - libjson-perl        #ctstream
 #      - liblttng-ust0       # .NET core
