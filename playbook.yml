@@ -132,6 +132,7 @@
       - libreoffice-help-cs
       - libreoffice-l10n-cs
 #      - libunwind8          # .NET core
+      - libxcb-xtest0       # Zoom client
       - libxml-xpath-perl   #ctstream
       - libxml2-utils
       - liferea
