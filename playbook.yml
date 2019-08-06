@@ -121,6 +121,7 @@
       - heimdall-flash-frontend
       - hunspell-cs
       - hyphen-cs
+      - insomnia
       - jq
       - latexmk
       - libcanberra-gtk-module
@@ -191,6 +192,8 @@
         key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xFCF70428AE7CE011515CB18ED8533594C2DEDF3E"
       - repo: deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main
         key: "https://packagecloud.io/slacktechnologies/slack/gpgkey"
+      - repo: deb https://dl.bintray.com/getinsomnia/Insomnia /
+        key: "https://insomnia.rest/keys/debian-public.key.asc"
   
   pre_tasks:
     - name: Ubuntu repos -- i386 architecture
