@@ -76,7 +76,9 @@
       - aspell-cs
       - bash-completion
       - vscodium                # Visual Studio Code
+      - carton                  # Perl
       - chrome-gnome-shell
+      - cpanminus               # Perl
       - curl
       - dconf-editor
       - default-jdk
@@ -125,6 +127,7 @@
       - jq
       - latexmk
       - libcanberra-gtk-module
+      - libio-aio-perl      # Perl
       - libjson-perl        #ctstream
 #      - liblttng-ust0       # .NET core
       - libpam-fprintd
