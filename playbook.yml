@@ -145,6 +145,7 @@
       - mythes-cs
       - network-manager-openconnect-gnome
       - network-manager-openvpn-gnome
+      - nodejs
       - openjdk-8-doc
       - openjdk-8-source
       - openjdk-11-doc
