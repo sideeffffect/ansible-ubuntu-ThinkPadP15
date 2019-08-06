@@ -143,6 +143,7 @@
       - mesa-utils
       - mtr-tiny
       - mythes-cs
+      - network-manager-openconnect-gnome
       - network-manager-openvpn-gnome
       - openjdk-8-doc
       - openjdk-8-source
