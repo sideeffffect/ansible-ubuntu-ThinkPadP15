@@ -480,6 +480,7 @@
           addCompilerPlugin("io.tryp" % "splain" % "0.4.0" cross CrossVersion.patch)
           addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.0.7" cross CrossVersion.full)
           scalacOptions += "-P:typed-holes:log-level:warn"
+          Global / onChangedBuildSource := ReloadOnSourceChanges
         dest: "~/.sbt/1.0/build.sbt"
     
     - name: Scala -- Gradle configuration
