@@ -153,6 +153,7 @@
       - openjdk-11-source
       - openjfx
       - pgadmin3
+      - pgadmin4
       - picard
       - python-jsonpath-rw
       - python-pip
@@ -203,6 +204,8 @@
         key: "https://packagecloud.io/slacktechnologies/slack/gpgkey"
       - repo: deb https://dl.bintray.com/getinsomnia/Insomnia /
         key: "https://insomnia.rest/keys/debian-public.key.asc"
+      - repo: deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main
+        key: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
   
   pre_tasks:
     - name: Ubuntu repos -- i386 architecture
