@@ -88,7 +88,6 @@
       - dnsutils
       - docker.io
       - docker-compose
-#      - dotnet-sdk-2.1.4    # .NET core
       - empathy
       - evolution
       - exuberant-ctags       # Python language server
@@ -106,7 +105,6 @@
       - gedit-plugin-draw-spaces
       - gedit-plugin-git
       - genisoimage
-#      - gettext             # .NET core
       - gimp
       - git
       - gitg
@@ -131,12 +129,10 @@
       - libgconf-2-4 # Postman
       - libio-aio-perl      # Perl
       - libjson-perl        #ctstream
-#      - liblttng-ust0       # .NET core
       - libpam-fprintd
       - libreoffice
       - libreoffice-help-cs
       - libreoffice-l10n-cs
-#      - libunwind8          # .NET core
       - libxcb-xtest0       # Zoom client
       - libxml-xpath-perl   #ctstream
       - libxml2-utils
@@ -441,28 +437,6 @@
         - ".metals"
         - ".bloop"
     
-    - name: Scala -- sbt 0.13 -- directory
-      file:
-        path: '~/.sbt/0.13/plugins'
-        state: directory
-    
-    - name: Scala -- sbt 0.13 plugins
-      copy:
-        content: |
-          addSbtPlugin("org.duhemm" % "sbt-errors-summary" % "0.6.0")
-          addSbtPlugin("com.softwaremill.clippy" % "plugin-sbt" % "0.6.0")
-        dest: ~/.sbt/0.13/plugins/plugins.sbt
-    
-    - name: Scala -- sbt 0.13 configuration
-      copy:
-        content: |
-          import com.softwaremill.clippy.ClippySbtPlugin._ // needed in global configuration only
-          clippyColorsEnabled := true
-          reporterConfig := reporterConfig.value.withShortenPaths(false)
-          addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.0.7" cross CrossVersion.full)
-          scalacOptions += "-P:typed-holes:log-level:warn"
-        dest: "~/.sbt/0.13/build.sbt"
-    
     - name: Scala -- sbt 1.0 -- directory
       file:
         path: '~/.sbt/1.0/plugins'
@@ -471,17 +445,13 @@
     - name: Scala -- sbt 1.0 plugins
       copy:
         content: |
-          addSbtPlugin("org.duhemm" % "sbt-errors-summary" % "0.6.3")
-          addSbtPlugin("com.softwaremill.clippy" % "plugin-sbt" % "0.6.0")
         dest: ~/.sbt/1.0/plugins/plugins.sbt
     
     - name: Scala -- sbt 1.0 configuration
       copy:
         content: |
-          clippyColorsEnabled := true
-          reporterConfig := reporterConfig.value.withShortenPaths(false)
-          addCompilerPlugin("io.tryp" % "splain" % "0.4.0" cross CrossVersion.patch)
-          addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.0.7" cross CrossVersion.full)
+          addCompilerPlugin("io.tryp" % "splain" % "0.4.1" cross CrossVersion.patch)
+          addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.1.0" cross CrossVersion.full)
           scalacOptions += "-P:typed-holes:log-level:warn"
           Global / onChangedBuildSource := ReloadOnSourceChanges
         dest: "~/.sbt/1.0/build.sbt"
@@ -493,8 +463,8 @@
               afterEvaluate {
                   if(project.pluginManager.hasPlugin('avast-scala')) {
                       dependencies {
-                          scalac 'com.github.cb372:scala-typed-holes_??:0.0.7'
-                          scalac 'io.tryp:splain_??:0.4.0'
+                          scalac 'com.github.cb372:scala-typed-holes_??:0.1.0'
+                          scalac 'io.tryp:splain_??:0.4.1'
                       }
 
                       tasks.withType(ScalaCompile) {
