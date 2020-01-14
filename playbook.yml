@@ -436,6 +436,7 @@
         - ".vscode"
         - ".metals"
         - ".bloop"
+        - "project/metals.sbt"
     
     - name: Scala -- sbt 1.0 -- directory
       file:
