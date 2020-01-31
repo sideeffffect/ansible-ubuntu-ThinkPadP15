@@ -515,7 +515,9 @@
           {
               "editor.fontFamily": "'Fira Code Light', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
               "editor.fontLigatures": true,
-              "editor.fontSize": 16
+              "editor.fontSize": 16,
+              "editor.formatOnPaste": true,
+              "editor.formatOnSave": true
           }
         dest: ~/.config/VSCodium/User/settings.json
     
