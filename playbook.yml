@@ -520,7 +520,11 @@
               "editor.fontLigatures": true,
               "editor.fontSize": 16,
               "editor.formatOnPaste": true,
-              "editor.formatOnSave": true
+              "editor.formatOnSave": true,
+              "editor.minimap.renderCharacters": false,
+              "extensions.autoUpdate": true,
+              "git.autofetch": true,
+              "editor.renderWhitespace": "all"
           }
         dest: ~/.config/VSCodium/User/settings.json
     
