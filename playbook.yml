@@ -524,6 +524,11 @@
               "editor.minimap.renderCharacters": false,
               "extensions.autoUpdate": true,
               "git.autofetch": true,
+              "customizeUI.font.monospace": "Fira Code Light",
+              "customizeUI.font.regular": "Fira Code Light",
+              "metals.javaHome": "/usr/lib/jvm/default-java",
+              "files.autoSave": "afterDelay",
+              "editor.minimap.showSlider": "always",
               "editor.renderWhitespace": "all"
           }
         dest: ~/.config/VSCodium/User/settings.json
