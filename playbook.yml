@@ -454,8 +454,8 @@
     - name: Scala -- sbt 1.0 configuration
       copy:
         content: |
-          addCompilerPlugin("io.tryp" % "splain" % "0.5.6" cross CrossVersion.patch)
-          addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.1.3.3" cross CrossVersion.full)
+          addCompilerPlugin("io.tryp" % "splain" % "0.5.7" cross CrossVersion.patch)
+          addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.1.4" cross CrossVersion.full)
           scalacOptions += "-P:typed-holes:log-level:warn"
           Global / onChangedBuildSource := ReloadOnSourceChanges
           ThisBuild / turbo := true
@@ -468,8 +468,8 @@
               afterEvaluate {
                   if(project.pluginManager.hasPlugin('avast-scala')) {
                       dependencies {
-                          scalac 'com.github.cb372:scala-typed-holes_??:0.1.1'
-                          scalac 'io.tryp:splain_??:0.5.0'
+                          scalac 'com.github.cb372:scala-typed-holes_??:0.1.4'
+                          scalac 'io.tryp:splain_??:0.5.7'
                       }
 
                       tasks.withType(ScalaCompile) {
