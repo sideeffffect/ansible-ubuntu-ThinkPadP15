@@ -72,7 +72,7 @@
 #        - https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.styl
     
     packages_add:
-      - adoptopenjdk-11-jdk-hotspot-installer
+      - adoptopenjdk-11-hotspot
       - ansible
       - aptitude
       - aspell-cs
@@ -196,8 +196,8 @@
         key: "https://dl.google.com/linux/linux_signing_key.pub"
       - repo: deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ vscodium main
         key: "https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg"
-      - repo: deb http://ppa.launchpad.net/rpardini/adoptopenjdk/ubuntu focal main
-        key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xFCF70428AE7CE011515CB18ED8533594C2DEDF3E"
+      - repo: deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ focal main
+        key: "https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public"
       - repo: deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main
         key: "https://packagecloud.io/slacktechnologies/slack/gpgkey"
       - repo: deb https://dl.bintray.com/getinsomnia/Insomnia /
