@@ -68,7 +68,7 @@
 #        - https://github.com/StylishThemes/Wikipedia-Dark/raw/master/wikipedia-dark.user.css
 #        - https://userstyles.org/styles/159780/dark-mozilla-add-ons-amo
 #        - https://github.com/StylishThemes/StackOverflow-Dark/raw/master/stackoverflow-dark.user.css
-#        - https://userstyles.org/styles/155141/dark-gmail-2018-by-dm
+#        - https://github.com/DM164/Dark-by-DM/raw/master/gmail.user.css
 #        - https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.styl
     
     packages_add:
@@ -194,7 +194,7 @@
         key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823"
       - repo: deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main
         key: "https://dl.google.com/linux/linux_signing_key.pub"
-      - repo: deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ vscodium main
+      - repo: deb https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs/ vscodium main
         key: "https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg"
       - repo: deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ focal main
         key: "https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public"
