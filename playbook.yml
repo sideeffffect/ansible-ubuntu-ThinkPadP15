@@ -116,6 +116,7 @@
       - gnome-shell-extension-weather
       - gnome-software-plugin-flatpak
       - gnome-tweak-tool
+      - golang-docker-credential-helpers
       - google-chrome-stable
       - grub-efi-amd64-signed
       - gstreamer1.0-packagekit
@@ -455,7 +456,7 @@
       copy:
         content: |
           addCompilerPlugin("io.tryp" % "splain" % "0.5.7" cross CrossVersion.patch)
-          addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.1.4" cross CrossVersion.full)
+          addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.1.5" cross CrossVersion.full)
           scalacOptions += "-P:typed-holes:log-level:warn"
           Global / onChangedBuildSource := ReloadOnSourceChanges
           ThisBuild / turbo := true
