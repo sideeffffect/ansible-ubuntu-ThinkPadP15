@@ -282,20 +282,6 @@
         - timeline
         - cleanup
     
-    - name: Bin directories -- present
-      file:
-        path: '~/.local/bin'
-        state: directory
-    
-    - name: Bin directories -- in PATH
-      lineinfile:
-        line: 'set -g -x PATH {{ item }} $PATH'
-        dest: ~/.config/fish/conf.d/path.fish
-        create: yes
-      with_items:
-        - "$HOME/.local/bin"
-        - "$HOME/.cargo/bin"
-    
     - name: Download Avast wallpaper
       get_url:
         url: https://lh5.googleusercontent.com/lA_GLMczOznPQvGuni0A0pFCgjrLprCQP1aTrbVpI3tA0UmsGDPfJDVRm9E48gWGuZHH2jI8v5BSvQQ=w2223-h1288
@@ -607,6 +593,20 @@
 #      args:
 #        creates: ~/.local/share/omf/themes/bobthefish
     
+    - name: Bin directories -- present
+      file:
+        path: '~/.local/bin'
+        state: directory
+    
+    - name: Bin directories -- in PATH
+      lineinfile:
+        line: 'set -g -x PATH {{ item }} $PATH'
+        dest: ~/.config/fish/conf.d/path.fish
+        create: yes
+      with_items:
+        - "$HOME/.local/bin"
+        - "$HOME/.cargo/bin"
+    
     - name: Environment variables
       lineinfile:
         line: 'set -g -x {{ item.name }} "{{ item.value }}"'
@@ -614,6 +614,7 @@
         create: yes
       with_items:
         - { name: "EDITOR", value: "/usr/bin/vim" }
+        - { name: "JDK_JAVA_OPTIONS", value: "-Dawt.useSystemAAFontSettings=lcd -XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee -XX:+PrintCommandLineFlags -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -XX:+UnlockExperimentalVMOptions -XX:MaxInlineLevel=24" } # "-XX:GCTimeRatio=19 -XX:MinHeapFreeRatio=20 -XX:MaxHeapFreeRatio=30"
     
     - name: sudo on Wayland
       copy:
