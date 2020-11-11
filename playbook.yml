@@ -610,6 +610,7 @@
     - name: Environment variables
       lineinfile:
         line: 'set -g -x {{ item.name }} "{{ item.value }}"'
+        regexp: '^set -g -x {{ item.name }} '
         dest: ~/.config/fish/conf.d/variables.fish
         create: yes
       with_items:
