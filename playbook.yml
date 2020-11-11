@@ -62,14 +62,18 @@
       styles:
 #        - https://userstyles.org/styles/141833/userstyles-dark-2017
 #        - https://userstyles.org/styles/133890/dark-hackernews
-#        - https://userstyles.org/styles/144028/google-clean-dark
 #        - https://github.com/StylishThemes/GitHub-Dark/raw/master/github-dark.user.css
+#        - https://raw.githubusercontent.com/StylishThemes/GitHub-Dark/master/github-custom-fonts.user.css
 #        - https://userstyles.org/styles/108591/github-wide
 #        - https://github.com/StylishThemes/Wikipedia-Dark/raw/master/wikipedia-dark.user.css
 #        - https://userstyles.org/styles/159780/dark-mozilla-add-ons-amo
+#        - https://raw.githubusercontent.com/Mattwmaster58/google-clean-darkx/master/google-clean-darkx.min.user.css
+#        - https://raw.githubusercontent.com/DM164/Dark-by-DM/master/google.user.css
+#        - https://raw.githubusercontent.com/DM164/Dark-by-DM/master/gmail.user.css
+#        - https://raw.githubusercontent.com/DM164/Dark-by-DM/master/google-docs.user.css
+#        - https://raw.githubusercontent.com/DM164/Dark-by-DM/master/google-drive.user.css
 #        - https://github.com/StylishThemes/StackOverflow-Dark/raw/master/stackoverflow-dark.user.css
-#        - https://github.com/DM164/Dark-by-DM/raw/master/gmail.user.css
-#        - https://gitlab.com/vednoc/dark-gitlab/raw/master/gitlab.user.styl
+#        - https://raw.githubusercontent.com/StylishThemes/Feature-Override-Styles/master/stackoverflow-syntax-themes.user.css
     
     packages_add:
       - adoptopenjdk-11-hotspot
