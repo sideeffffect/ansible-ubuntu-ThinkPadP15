@@ -642,11 +642,11 @@
         name: gdm3.css
         path: /usr/share/gnome-shell/theme/gnome-shell.css
     
-    - name: Java -- Ubuntu OpenJDK 8
+    - name: Java -- AdoptOpenJDK 11
       become: yes
       alternatives:
         name: java
-        path: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+        path: /usr/lib/jvm/adoptopenjdk-11-hotspot-amd64/bin/java
   
   roles:
     - name: zerotao.packages
