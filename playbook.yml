@@ -182,6 +182,7 @@
       - shntool
       - slack-desktop
       - snapper
+      - snapper-gui
       - sudo
       - synaptic
       - texlive
