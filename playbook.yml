@@ -474,7 +474,7 @@
               afterEvaluate {
                   if(project.pluginManager.hasPlugin('avast-scala')) {
                       dependencies {
-                          scalac 'com.github.cb372:scala-typed-holes_??:0.1.4'
+                          scalac 'com.github.cb372:scala-typed-holes_??:0.1.5'
                           scalac 'io.tryp:splain_??:0.5.7'
                       }
 
@@ -523,20 +523,19 @@
       copy:
         content: |
           {
+              "customizeUI.font.monospace": "Fira Code Light",
+              "customizeUI.font.regular": "Fira Code Light",
               "editor.fontFamily": "'Fira Code Light', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
               "editor.fontLigatures": true,
               "editor.fontSize": 16,
               "editor.formatOnPaste": true,
               "editor.formatOnSave": true,
-              "editor.minimap.renderCharacters": false,
-              "extensions.autoUpdate": true,
-              "git.autofetch": true,
-              "customizeUI.font.monospace": "Fira Code Light",
-              "customizeUI.font.regular": "Fira Code Light",
-              "metals.javaHome": "/usr/lib/jvm/default-java",
-              "files.autoSave": "afterDelay",
               "editor.minimap.showSlider": "always",
-              "editor.renderWhitespace": "all"
+              "editor.minimap.renderCharacters": false,
+              "editor.renderWhitespace": "all",
+              "extensions.autoUpdate": true,
+              "files.autoSave": "afterDelay",
+              "git.autofetch": true,
           }
         dest: ~/.config/VSCodium/User/settings.json
     
