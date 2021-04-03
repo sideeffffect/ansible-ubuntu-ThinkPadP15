@@ -87,6 +87,8 @@
 #        - https://raw.githubusercontent.com/DM164/Dark-by-DM/master/google-drive.user.css
 #        - https://github.com/StylishThemes/StackOverflow-Dark/raw/master/stackoverflow-dark.user.css
 #        - https://raw.githubusercontent.com/StylishThemes/Feature-Override-Styles/master/stackoverflow-syntax-themes.user.css
+#      scripts:
+#        - https://github.com/Farow/userscripts/raw/master/reddit-highlight-new-comments.user.js
     
     packages_add:
       - adoptopenjdk-11-hotspot
