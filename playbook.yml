@@ -185,9 +185,11 @@
 #      - libgmp-dev          # Haskell/GHC/Stack
       - libgtop2-dev
 #      - libicu-dev          # Haskell/GHC/Stack
+      - libjpeg-dev         # ccp-crypto
       - libjson-perl        #ctstream
 #      - liblttng-ust0       # .NET core
       - libpam-fprintd
+      - libpq-dev           # ccp-crypto
       - libreoffice
       - libreoffice-help-cs
       - libreoffice-l10n-cs
