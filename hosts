@@ -1,3 +1,3 @@
 # Dummy inventory for ansible
-ubuntu-ThinkPadP50 ansible_host=localhost ansible_connection=local
+ondra-ThinkPad-P15-Gen-2i ansible_host=localhost ansible_connection=local
 

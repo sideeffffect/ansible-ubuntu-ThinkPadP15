@@ -1,52 +1,51 @@
 ---
 
-- hosts: ubuntu-ThinkPadP50
+- hosts: ondra-ThinkPad-P15-Gen-2i
 
   vars:
-    firefox:
-
-#      <profile>/chrome/userChrome.css
+#    firefox:
 #
-#      @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-#      #TabsToolbar {
-#          visibility: collapse !important;
-#      }
-#      #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
-#        display: none;
-#      }
-
-      addons:
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/https-everywhere
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/ublock-origin
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/remove-google-redirections
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/styl-us/
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/reddit-enhancement-suite
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/hnes
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/gesturefy
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/gnome-download-notifications
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/torrentz2-magnet-links
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/violentmonkey
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/json-lite
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/pretty-xml
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/search_by_image
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/gnome-shell-integration
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/select-after-closing-current/
-#        - url: https://github.com/Ibit-to/google-unlocked/releases/download/v1.5/google_unlocked-1.5.xpi
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/clickbait-remover-for-youtube/
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/enhanced-h264ify/
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/neutral-reddit-masstagger
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/better-pull-request-for-github/
-#        - url: https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/zoom-new-scheduler/
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/facebook-container/
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/google-container/
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/twitter-container/
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/contain-amazon/
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/contain-reddit/
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/notifier-for-github/
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/refined-github-/
-#        - url: https://addons.mozilla.org/en-US/firefox/addon/github-file-icon/
+##      <profile>/chrome/userChrome.css
+##
+##      @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+##      #TabsToolbar {
+##          visibility: collapse !important;
+##      }
+##      #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+##        display: none;
+##      }
+#
+#      addons:
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/https-everywhere
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/ublock-origin
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/clearurls
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/styl-us
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/reddit-enhancement-suite
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/hnes
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/gesturefy
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/gnome-download-notifications
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/torrentz2-magnet-links
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/violentmonkey
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/json-lite
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/pretty-xml
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/search_by_image
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/gnome-shell-integration
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/select-after-closing-current/
+##        - url: https://github.com/Ibit-to/google-unlocked/releases/download/v1.5/google_unlocked-1.5.xpi
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/clickbait-remover-for-youtube/
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/neutral-reddit-masstagger
+##        - url: https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/zoom-new-scheduler/
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/facebook-container/
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/google-container/
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/twitter-container/
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/contain-amazon/
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/contain-reddit/
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/notifier-for-github/
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/refined-github-/
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/github-file-icons/
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/old-reddit-redirect/
 #      prefs:
 #        - name: toolkit.cosmeticAnimations.enabled
 #          value: false
@@ -59,7 +58,7 @@
 #        - name: dom.ipc.processCount
 #          value: 99
 #        - name: dom.ipc.processCount.extension
-#          value: 1
+#          value: 99
 #        - name: dom.ipc.processCount.file
 #          value: 99
 #        - name: dom.ipc.processCount.webLargeAllocation
@@ -72,34 +71,64 @@
 #          value: firefox-compact-dark@mozilla.org
 #        - name: widget.chrome.allow-gtk-dark-theme
 #          value: true
-      styles:
-#        - https://userstyles.org/styles/141833/userstyles-dark-2017
-#        - https://userstyles.org/styles/133890/dark-hackernews
-#        - https://github.com/StylishThemes/GitHub-Dark/raw/master/github-dark.user.css
-#        - https://raw.githubusercontent.com/StylishThemes/GitHub-Dark/master/github-custom-fonts.user.css
-#        - https://userstyles.org/styles/108591/github-wide
-#        - https://github.com/StylishThemes/Wikipedia-Dark/raw/master/wikipedia-dark.user.css
-#        - https://userstyles.org/styles/159780/dark-mozilla-add-ons-amo
-#        - https://raw.githubusercontent.com/Mattwmaster58/google-clean-darkx/master/google-clean-darkx.min.user.css
-#        - https://raw.githubusercontent.com/DM164/Dark-by-DM/master/google.user.css
-#        - https://raw.githubusercontent.com/DM164/Dark-by-DM/master/gmail.user.css
-#        - https://raw.githubusercontent.com/DM164/Dark-by-DM/master/google-docs.user.css
-#        - https://raw.githubusercontent.com/DM164/Dark-by-DM/master/google-drive.user.css
-#        - https://github.com/StylishThemes/StackOverflow-Dark/raw/master/stackoverflow-dark.user.css
-#        - https://raw.githubusercontent.com/StylishThemes/Feature-Override-Styles/master/stackoverflow-syntax-themes.user.css
-#      scripts:
-#        - https://github.com/Farow/userscripts/raw/master/reddit-highlight-new-comments.user.js
+#        - name: toolkit.legacyUserProfileCustomizations.stylesheets
+#          value: true
+## HW decoding experiment
+## https://mastransky.wordpress.com/2020/03/03/webgl-and-fgx-acceleration-on-wayland/
+## https://mastransky.wordpress.com/2020/06/03/firefox-on-fedora-finally-gets-va-api-on-wayland/
+## MOZ_LOG="PlatformDecoderModule:5" MOZ_ENABLE_WAYLAND=1 firefox
+#        - name: dom.webgpu.enabled
+#          value: true
+#        - name: gfx.webrender.all
+#          value: true
+#        - name: gfx.webrender.compositor.force-enabled
+#          value: true
+#        - name: gfx.webrender.enabled
+#          value: true
+#        - name: layers.acceleration.force-enabled
+#          value: true
+#        - name: layers.force-active
+#          value: true
+#        - name: media.ffvpx.enabled
+#          value: false
+#        - name: media.hardware-video-decoding.force-enabled
+#          value: true
+#        - name: webgl.force-enabled
+#          value: true
+#        - name: widget.wayland-dmabuf-vaapi.enabled
+#          value: true
+#        - name: widget.wayland-dmabuf-webgl.enabled
+#          value: true
+#        - name: widget.wayland-smooth-rendering
+#          value: true
+#        - name: widget.wayland_vsync.enabled
+#          value: true
+#      styles:
+##        - https://userstyles.org/styles/141833/userstyles-dark-2017
+##        - https://userstyles.org/styles/133890/dark-hackernews
+##        - https://github.com/StylishThemes/GitHub-Dark/raw/master/github-dark.user.css
+##        - https://raw.githubusercontent.com/StylishThemes/GitHub-Dark/master/github-custom-fonts.user.css
+##        - https://userstyles.org/styles/108591/github-wide
+##        - https://github.com/StylishThemes/Wikipedia-Dark/raw/master/wikipedia-dark.user.css
+##        - https://userstyles.org/styles/159780/dark-mozilla-add-ons-amo
+##        - https://raw.githubusercontent.com/Mattwmaster58/google-clean-darkx/master/google-clean-darkx.min.user.css
+##        - https://raw.githubusercontent.com/DM164/Dark-by-DM/master/google.user.css
+##        - https://raw.githubusercontent.com/DM164/Dark-by-DM/master/gmail.user.css
+##        - https://raw.githubusercontent.com/DM164/Dark-by-DM/master/google-docs.user.css
+##        - https://raw.githubusercontent.com/DM164/Dark-by-DM/master/google-drive.user.css
+##        - https://github.com/StylishThemes/StackOverflow-Dark/raw/master/stackoverflow-dark.user.css
+##        - https://raw.githubusercontent.com/StylishThemes/Feature-Override-Styles/master/stackoverflow-syntax-themes.user.css
+##      scripts:
+##        - https://github.com/Farow/userscripts/raw/master/reddit-highlight-new-comments.user.js
     
     packages_add:
-      - adoptopenjdk-11-hotspot
       - ansible
       - aptitude
       - aspell-cs
       - bash-completion
+      - clang                   # Scala Native
       - codium                  # Visual Studio Code
-      - carton                  # Perl
       - chrome-gnome-shell
-      - cpanminus               # Perl
       - curl
       - dconf-editor
       - default-jdk
@@ -109,32 +138,36 @@
       - dnsutils
       - docker.io
       - docker-compose
-      - empathy
+#      - dotnet-sdk-2.1.4    # .NET core
       - evolution
       - exuberant-ctags       # Python language server
       - fasd
       - ffmpeg
-      - firefox
-      - firefox-locale-cs
+      - fonts-firacode
       - fish
       - flac
       - flatpak
       - fluid-soundfont-gs
       - fonts-noto
-      - gconf-editor
+#      - fsharp
+      - fwupd
+      - fwupd-signed
       - gconf2
+      - gdm3
       - gedit-plugin-draw-spaces
       - gedit-plugin-git
       - genisoimage
+#      - gettext             # .NET core
       - gimp
       - git
       - gitg
+      - gitless
       - glances
       - gnome-session
-      - gnome-shell-extension-system-monitor
-      - gnome-shell-extension-weather
+      - gnome-shell-extension-manager
       - gnome-software-plugin-flatpak
-      - gnome-tweak-tool
+      - gnome-themes-extra
+      - gnome-tweaks
       - golang-docker-credential-helpers
       - google-chrome-stable
       - grub-efi-amd64-signed
@@ -145,36 +178,48 @@
       - hunspell-cs
       - hyphen-cs
       - insomnia
+      - jp
       - jq
       - latexmk
-      - libcanberra-gtk-module
-      - libgconf-2-4 # Postman
-      - libio-aio-perl      # Perl
+      - libgc-dev           # Scala Native
+#      - libgmp-dev          # Haskell/GHC/Stack
+      - libgtop2-dev
+#      - libicu-dev          # Haskell/GHC/Stack
       - libjson-perl        #ctstream
+#      - liblttng-ust0       # .NET core
       - libpam-fprintd
       - libreoffice
       - libreoffice-help-cs
       - libreoffice-l10n-cs
+#      - libtinfo-dev        # Haskell/GHC/Stack
+#      - libunwind8          # .NET core
       - libxcb-xtest0       # Zoom client
       - libxml-xpath-perl   #ctstream
       - libxml2-utils
       - liferea
+      - locate
       - mesa-utils
+#      - mono-complete
+      - mp3splt
       - mtr-tiny
       - mythes-cs
       - network-manager-openconnect-gnome
       - network-manager-openvpn-gnome
+      - network-manager-ssh-gnome
       - nodejs
+      - npm                 # Scala.js, F# fable
       - openjdk-8-doc
+      - openjdk-8-jdk
       - openjdk-8-source
       - openjdk-11-doc
+      - openjdk-11-jdk
       - openjdk-11-source
+      - openjdk-17-doc
+      - openjdk-17-jdk
+      - openjdk-17-source
       - openjfx
-      - pgadmin3
       - pgadmin4
       - picard
-      - python-jsonpath-rw
-      - python-pip
       - python3-pip
       - python3-venv
       - qemu-kvm
@@ -182,9 +227,8 @@
       - sbt
       - shim-signed
       - shntool
+      - signal-desktop
       - slack-desktop
-      - snapper
-      - snapper-gui
       - sudo
       - synaptic
       - texlive
@@ -195,42 +239,49 @@
       - tracker
       - tree
       - unrar
+      - vanilla-gnome-default-settings
+      - vanilla-gnome-desktop
       - vim-nox
       - virt-manager
+#      - virtualbox-6.0
       - visualvm
       - vlc
       - xinput
+#      - zlib1g-dev          # Haskell/GHC/Stack
     packages_repos:
-      - repo: deb http://cz.archive.ubuntu.com/ubuntu focal           main universe restricted multiverse
-      - repo: deb http://cz.archive.ubuntu.com/ubuntu focal-updates   main universe restricted multiverse
-      - repo: deb http://cz.archive.ubuntu.com/ubuntu focal-backports main universe restricted multiverse
-      - repo: deb http://security.ubuntu.com/ubuntu   focal-security  main universe restricted multiverse
+      - repo: deb http://cz.archive.ubuntu.com/ubuntu jammy           main universe restricted multiverse
+      - repo: deb http://cz.archive.ubuntu.com/ubuntu jammy-updates   main universe restricted multiverse
+      - repo: deb http://cz.archive.ubuntu.com/ubuntu jammy-backports main universe restricted multiverse
+      - repo: deb http://security.ubuntu.com/ubuntu   jammy-security  main universe restricted multiverse
 
-      - repo: deb-src http://cz.archive.ubuntu.com/ubuntu focal           main universe restricted multiverse
-      - repo: deb-src http://cz.archive.ubuntu.com/ubuntu focal-updates   main universe restricted multiverse
-      - repo: deb-src http://cz.archive.ubuntu.com/ubuntu focal-backports main universe restricted multiverse
-      - repo: deb-src http://security.ubuntu.com/ubuntu   focal-security  main universe restricted multiverse
+      - repo: deb-src http://cz.archive.ubuntu.com/ubuntu jammy           main universe restricted multiverse
+      - repo: deb-src http://cz.archive.ubuntu.com/ubuntu jammy-updates   main universe restricted multiverse
+      - repo: deb-src http://cz.archive.ubuntu.com/ubuntu jammy-backports main universe restricted multiverse
+      - repo: deb-src http://security.ubuntu.com/ubuntu   jammy-security  main universe restricted multiverse
 
-      - repo: deb https://dl.bintray.com/sbt/debian /
+#      - repo: deb http://download.mono-project.com/repo/debian wheezy main
+#        key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
+      - repo: deb https://repo.scala-sbt.org/scalasbt/debian all main
         key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823"
-      - repo: deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main
+      - repo: deb https://dl.google.com/linux/chrome/deb/ stable main
         key: "https://dl.google.com/linux/linux_signing_key.pub"
-      - repo: deb https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs/ vscodium main
+      - repo: deb https://download.vscodium.com/debs vscodium main
         key: "https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg"
-      - repo: deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ focal main
-        key: "https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public"
-      - repo: deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main
+#      - repo: deb https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main
+#        key: "https://packages.microsoft.com/keys/microsoft.asc"
+      - repo: deb https://updates.signal.org/desktop/apt xenial main
+        key: "https://updates.signal.org/desktop/apt/keys.asc"
+#      - repo: deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian jammy contrib
+#        key: "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
+      - repo: deb https://packages.adoptium.net/artifactory/deb jammy main
+        key: "https://packages.adoptium.net/artifactory/api/gpg/key/public"
+      - repo: deb https://packagecloud.io/slacktechnologies/slack/debian jessie main # published only for debian/jessie
         key: "https://packagecloud.io/slacktechnologies/slack/gpgkey"
-      - repo: deb https://dl.bintray.com/getinsomnia/Insomnia /
-        key: "https://insomnia.rest/keys/debian-public.key.asc"
-      - repo: deb http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main
-        key: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
-  
+      - repo: deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all
+      - repo: deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy pgadmin4 main
+        key: "https://www.pgadmin.org/static/packages_pgadmin_org.pub"
+
   pre_tasks:
-    - name: Ubuntu repos -- i386 architecture
-      become: yes
-      command: dpkg --add-architecture i386
-    
     - name: Update and upgrade apt packages
       become: true
       apt:
@@ -244,24 +295,25 @@
         name: apt-transport-https
         state: present
   
-  post_tasks:
     - name: Ubuntu repos -- remove old sources.list
       become: yes
-      copy:
-        content: ""
-        dest: /etc/apt/sources.list
-    
+      file:
+        path: /etc/apt/sources.list
+        state: absent
+  
+  post_tasks:
+
     - name: Ubuntu repos -- remove google-chrome.list
       become: yes
-      copy:
-        content: ""
+      file:
         dest: /etc/apt/sources.list.d/google-chrome.list
+        state: absent
     
     - name: Ubuntu repos -- remove slack.list
       become: yes
-      copy:
-        content: ""
+      file:
         dest: /etc/apt/sources.list.d/slack.list
+        state: absent
     
     - name: /tmp in RAM -- tmp.mount available
       become: yes
@@ -275,36 +327,16 @@
         daemon_reload: yes
         name: tmp.mount
         enabled: yes
-    
-    - name: Snapper -- enable timelines and cleanup
-      become: yes
-      systemd:
-        name: snapper-{{ item }}.timer
-        enabled: yes
-      with_items:
-        - timeline
-        - cleanup
-    
-    - name: Download Avast wallpaper
+
+    - name: Download AnotherCountrySunset wallpaper
       get_url:
-        url: https://lh5.googleusercontent.com/lA_GLMczOznPQvGuni0A0pFCgjrLprCQP1aTrbVpI3tA0UmsGDPfJDVRm9E48gWGuZHH2jI8v5BSvQQ=w2223-h1288
-        dest: '~/Pictures/10_2016_MKT-6375_Wallpaper_for_tutorial_videos8.jpg'
+        url: http://ftp.gnome.org/pub/GNOME/teams/art.gnome.org/backgrounds/NATURE-AnotherCountrySunset_1920x1200.jpg
+        dest: '~/Pictures/NATURE-AnotherCountrySunset_1920x1200.jpg'
     
     - name: Fonts -- directory
       file:
         path: '~/.local/share/fonts'
         state: directory
-    
-    - name: Fonts -- Fira Code -- download
-      get_url:
-        url: 'https://github.com/tonsky/FiraCode/raw/master/distr/ttf/FiraCode-{{ item }}.ttf'
-        dest: '~/.local/share/fonts/FiraCode-{{ item }}.ttf'
-      with_items:
-        - Bold
-        - Light
-        - Medium
-        - Regular
-        - Retina
     
 #    - name: gconf
 #      gconftool2:
@@ -313,26 +345,25 @@
 #        value_type: '{{ item.type }}'
 #        state: present
 #      with_items:
-    
+
     - name: gsettings
       command: gsettings set {{ item }}
       with_items:
         - net.sf.liferea default-view-mode 1
         - net.sf.liferea disable-toolbar true
         - net.sf.liferea.plugins active-plugins "['media-player', 'gnome-keyring']"
-        
-        - org.freedesktop.Tracker.Extract sched-idle 'always'
-        - org.freedesktop.Tracker.Miner.Files sched-idle 'always'
+
+        - org.freedesktop.Tracker3.Miner.Files index-on-battery false
         
         - org.gnome.Terminal.Legacy.Settings new-terminal-mode 'tab'
         
-        - org.gnome.desktop.background picture-uri '~/Pictures/10_2016_MKT-6375_Wallpaper_for_tutorial_videos8.jpg'
+        - org.gnome.desktop.background picture-uri '~/Pictures/NATURE-AnotherCountrySunset_1920x1200.jpg'
         - org.gnome.desktop.datetime automatic-timezone true
         - org.gnome.desktop.interface clock-show-date true
         - org.gnome.desktop.interface clock-show-seconds true
         - org.gnome.desktop.interface document-font-name 'DejaVu Sans 12'
         - org.gnome.desktop.interface font-name 'DejaVu Sans 12'
-        - org.gnome.desktop.interface monospace-font-name 'Fira Code Light 12'
+        - org.gnome.desktop.interface monospace-font-name 'Fira Code Retina 12'
         - org.gnome.desktop.wm.preferences titlebar-font 'DejaVu Sans Bold 12'
         
         - org.gnome.gedit.preferences.editor auto-indent true
@@ -348,40 +379,41 @@
         
         - org.gnome.rhythmbox.player use-xfade-backend true
         
-        - org.gnome.settings-daemon.plugins.xsettings antialiasing 'rgba'
-        - org.gnome.settings-daemon.plugins.xsettings hinting 'full'
+        - org.gnome.desktop.interface font-antialiasing 'rgba'
+        - org.gnome.desktop.interface font-hinting 'full'
         
         - org.gnome.settings-daemon.plugins.color night-light-enabled true
         
-        - org.gnome.shell enabled-extensions "['Move_Clock@rmy.pobox.com', 'openweather-extension@jenslody.de', 'system-monitor@paradoxxx.zero.gmail.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com']"
+        - org.gnome.shell enabled-extensions "['Move_Clock@rmy.pobox.com', 'openweather-extension@jenslody.de', 'system-monitor-next@paradoxxx.zero.gmail.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'vertical-overview@RensAlthuis.github.com']"
         - org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Evolution.desktop', 'slack.desktop', 'net.sourceforge.liferea.desktop', 'rhythmbox.desktop', 'org.gnome.Nautilus.desktop']"
         - org.gnome.shell.app-switcher current-workspace-only true
         
-#        - org.gnome.shell.extensions.auto-move-windows application-list "['firefox.desktop:1', 'org.gnome.Evolution.desktop:2', 'empathy.desktop:2', 'signal-desktop.desktop:2', 'net.sourceforge.liferea.desktop:3', 'rhythmbox.desktop:4']"
+        - org.gnome.shell.extensions.auto-move-windows application-list "['firefox.desktop:1', 'org.gnome.Evolution.desktop:2', 'signal-desktop.desktop:2', 'net.sourceforge.liferea.desktop:3', 'rhythmbox.desktop:4']"
         
-        - org.gnome.shell.extensions.openweather city '50.0596288,14.446459273258>Praha, Česko >-1'
-        - org.gnome.shell.extensions.openweather position-in-panel 'right'
-        - org.gnome.shell.extensions.openweather pressure-unit 'kPa'
-        - org.gnome.shell.extensions.openweather unit 'celsius'
-        - org.gnome.shell.extensions.openweather wind-speed-unit 'm/s'
+#        - org.gnome.shell.extensions.openweather city '50.0596288,14.446459273258>Praha, Česko >-1'
+#        - org.gnome.shell.extensions.openweather position-in-panel 'right'
+#        - org.gnome.shell.extensions.openweather pressure-unit 'kPa'
+#        - org.gnome.shell.extensions.openweather unit 'celsius'
+#        - org.gnome.shell.extensions.openweather wind-speed-unit 'm/s'
         
         - org.gtk.Settings.FileChooser sort-directories-first true
         
         - org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Toggle Guake'
         - org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Shift>space'
         - org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'guake -t'
-        
-#        - org.gnome.desktop.wm.keybindings switch-to-workspace-left '[]'
-#        - org.gnome.desktop.wm.keybindings switch-to-workspace-right '[]'
-    
+
+        - guake.keybindings.global show-hide '<Shift>space'
+        - guake.style cursor-shape 1
+        - guake.general infinite-history true
+        - guake.general mouse-display false
+
+        - org.gnome.desktop.interface gtk-theme Adwaita-dark
+        - org.gnome.desktop.interface color-scheme prefer-dark
+
     - name: gsettings -- with schema
       command: gsettings --schemadir {{ item.schemaDir }} set {{ item.schema }} {{ item.key }} {{ item.value}}
-      with_items:
-        - { schemaDir: '/usr/share/guake/data/', schema: 'guake.keybindings.global', key: 'show-hide', value: '<Shift>space' }
-        - { schemaDir: '/usr/share/guake/data/', schema: 'guake.style', key: 'cursor-shape', value: 1 }
-        - { schemaDir: '/usr/share/guake/data/', schema: 'guake.general', key: 'infinite-history', value: 'true' }
-        - { schemaDir: '/usr/share/guake/data/', schema: 'guake.general', key: 'mouse-display', value: 'false' }
-    
+      with_items: []
+
     - name: Fonts -- Xresources
       copy:
         content: |
@@ -426,8 +458,8 @@
         option: "{{ item.option }}"
         value: "{{ item.value }}"
       with_items:
-        - { section: "user", option: "email", value: "ondrej.pelech@avast.com" }
-        - { section: "user", option: "name", value: "Ondřej Pelech" }
+        - { section: "user", option: "email", value: "ondra.pelech@gmail.com" }
+        - { section: "user", option: "name", value: "Ondra Pelech" }
         - { section: "core", option: "excludesfile", value: "~/.gitignore_global" }
     
     - name: Git -- ignore
@@ -448,6 +480,11 @@
         - "metals.sbt"
         - "idea-bloop.sbt"
         - ".bsp"
+
+    - name: Bin directories -- present
+      file:
+        path: '~/.local/bin'
+        state: directory
     
     - name: Scala -- sbt 1.0 -- directory
       file:
@@ -462,36 +499,24 @@
     - name: Scala -- sbt 1.0 configuration
       copy:
         content: |
-          addCompilerPlugin("io.tryp" % "splain" % "0.5.7" cross CrossVersion.patch)
-          addCompilerPlugin("com.github.cb372" % "scala-typed-holes" % "0.1.5" cross CrossVersion.full)
-          scalacOptions += "-P:typed-holes:log-level:warn"
           Global / onChangedBuildSource := ReloadOnSourceChanges
           ThisBuild / turbo := true
         dest: "~/.sbt/1.0/build.sbt"
-    
-    - name: Scala -- Gradle configuration
+
+    - name: IntelliJ -- .desktop file
       copy:
         content: |
-          allprojects {
-              afterEvaluate {
-                  if(project.pluginManager.hasPlugin('avast-scala')) {
-                      dependencies {
-                          scalac 'com.github.cb372:scala-typed-holes_??:0.1.5'
-                          scalac 'io.tryp:splain_??:0.5.7'
-                      }
-
-                      tasks.withType(ScalaCompile) {
-                          if (scalaCompileOptions.additionalParameters == null) {
-                              scalaCompileOptions.additionalParameters = new ArrayList<>()
-                          }
-
-                          scalaCompileOptions.additionalParameters += ['-P:typed-holes:log-level:warn']
-                      }
-                  }
-              }
-          }
-        
-        dest: "~/.gradle/init.gradle"
+          [Desktop Entry]
+          Version=1.0
+          Type=Application
+          Name=IntelliJ IDEA Community Edition
+          Icon=/home/ondra/.local/idea/bin/idea.png
+          Exec="/home/ondra/.local/idea/bin/idea.sh" %f
+          Comment=The Drive to Develop
+          Categories=Development;IDE;
+          Terminal=false
+          StartupWMClass=jetbrains-idea-ce
+        dest: "~/.local/share/applications/jetbrains-idea-ce.desktop"
     
     - name: Ammonite-Shell -- directory
       file:
@@ -520,14 +545,14 @@
       file:
         path: '~/.config/VSCodium/User'
         state: directory
-    
+
     - name: VSCodium -- settings.json
       copy:
         content: |
           {
-              "customizeUI.font.monospace": "Fira Code Light",
-              "customizeUI.font.regular": "Fira Code Light",
-              "editor.fontFamily": "'Fira Code Light', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+              "customizeUI.font.monospace": "Fira Code Retina",
+              "customizeUI.font.regular": "Fira Code Retina",
+              "editor.fontFamily": "'Fira Code Retina', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
               "editor.fontLigatures": true,
               "editor.fontSize": 16,
               "editor.formatOnPaste": true,
@@ -540,14 +565,7 @@
               "git.autofetch": true,
           }
         dest: ~/.config/VSCodium/User/settings.json
-    
-    - name: dpath -- install with pip (Python) # to enable json module (from jpnewman.json)
-      become: yes
-      pip:
-        name: dpath
-        state: latest
-        executable: pip2
-    
+
     - name: youtube-dl -- install with pip (Python)
       become: yes
       pip:
@@ -560,11 +578,12 @@
         src: /usr/share/applications/{{ item }}.desktop
         dest: ~/.config/autostart/
       with_items:
-        - empathy
         - org.gnome.Evolution
+        - firefox
         - guake
         - net.sourceforge.liferea
         - rhythmbox
+        - signal-desktop
         - slack
     
 #    - name: Autostart applications -- local
@@ -595,19 +614,18 @@
 #      args:
 #        creates: ~/.local/share/omf/themes/bobthefish
     
-    - name: Bin directories -- present
-      file:
-        path: '~/.local/bin'
-        state: directory
-    
     - name: Bin directories -- in PATH
       lineinfile:
         line: 'set -g -x PATH {{ item }} $PATH'
         dest: ~/.config/fish/conf.d/path.fish
         create: yes
       with_items:
-        - "$HOME/.local/bin"
         - "$HOME/.cargo/bin"
+        - "$HOME/.local/Android/tools/bin"
+        - "$HOME/.local/Android/platform-tools"
+        - "$HOME/.local/Android/emulator"
+        - "$HOME/.local/bin"
+        - "$HOME/.local/idea/bin"
     
     - name: Environment variables
       lineinfile:
@@ -617,7 +635,10 @@
         create: yes
       with_items:
         - { name: "EDITOR", value: "/usr/bin/vim" }
-        - { name: "JDK_JAVA_OPTIONS", value: "-Dawt.useSystemAAFontSettings=lcd -XX:+IgnoreUnrecognizedVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -XX:+UnlockExperimentalVMOptions -XX:MaxInlineLevel=24" } # -XX:+PrintCommandLineFlags "-XX:GCTimeRatio=19 -XX:MinHeapFreeRatio=20 -XX:MaxHeapFreeRatio=30"
+        - { name: "ANDROID_HOME", value: "$HOME/.local/Android" }
+        - { name: "ANDROID_NDK_HOME", value: "$HOME/.local/Android/ndk-bundle" }
+#        - { name: "JDK_JAVA_OPTIONS", value: "-Dawt.useSystemAAFontSettings=lcd -XX:+IgnoreUnrecognizedVMOptions -XX:+UnlockExperimentalVMOptions" }
+
     
     - name: sudo on Wayland
       copy:
@@ -634,29 +655,24 @@
       command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
       args:
         creates: /var/lib/flatpak/appstream/flathub
+
+#    - name: GNOME -- gdm-theme.gresource
+#      become: yes
+#      alternatives:
+#        name: gdm-theme.gresource
+#        path: /usr/share/gnome-shell/gnome-shell-theme.gresource
     
-    - name: SSH -- keys
-      command: ssh-keygen -t ed25519 -C "ondrej.pelech@avast.com"
-      args:
-        creates: ~/.ssh/id_ed25519.pub
-    
-    - name: GNOME -- gdm3.css
-      become: yes
-      alternatives:
-        name: gdm3.css
-        path: /usr/share/gnome-shell/theme/gnome-shell.css
-    
-    - name: Java -- AdoptOpenJDK 11
-      become: yes
-      alternatives:
-        name: java
-        path: /usr/lib/jvm/adoptopenjdk-11-hotspot-amd64/bin/java
-  
+#    - name: Java -- AdoptOpenJDK 11
+#      become: yes
+#      alternatives:
+#        name: java
+#        path: /usr/lib/jvm/adoptopenjdk-11-hotspot-amd64/bin/java
+
   roles:
     - name: zerotao.packages
       become: yes
     
-    - alzadude.firefox
+#    - alzadude.firefox
     
-    - jpnewman.json
+#    - jpnewman.json
 
