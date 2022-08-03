@@ -632,7 +632,9 @@
         - "$HOME/.local/Android/emulator"
         - "$HOME/.local/bin"
         - "$HOME/.local/idea/bin"
-    
+        - "$HOME/.local/share/coursier/bin"
+        - "$HOME/.pulumi/bin"
+
     - name: Environment variables
       lineinfile:
         line: 'set -g -x {{ item.name }} "{{ item.value }}"'
