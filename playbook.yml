@@ -126,9 +126,10 @@
       - aptitude
       - aspell-cs
       - bash-completion
+      - chrome-gnome-shell
       - clang                   # Scala Native
       - codium                  # Visual Studio Code
-      - chrome-gnome-shell
+      - cpupower-gui
       - curl
       - dconf-editor
       - default-jdk
@@ -189,7 +190,7 @@
       - libjson-perl        #ctstream
 #      - liblttng-ust0       # .NET core
       - libpam-fprintd
-      - libpq-dev           # ccp-crypto
+#      - libpq-dev           # ccp-crypto
       - libreoffice
       - libreoffice-help-cs
       - libreoffice-l10n-cs
@@ -238,6 +239,7 @@
       - texlive-lang-english
       - texlive-luatex
       - texlive-xetex
+      - thinkfan
       - tracker
       - tree
       - unrar
@@ -282,6 +284,8 @@
       - repo: deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all
       - repo: deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy pgadmin4 main
         key: "https://www.pgadmin.org/static/packages_pgadmin_org.pub"
+      - repo: deb http://download.opensuse.org/repositories/home:/erigas:/cpupower-gui/xUbuntu_21.10/ /
+        key: "https://download.opensuse.org/repositories/home:erigas:cpupower-gui/xUbuntu_21.10/Release.key"
 
   pre_tasks:
     - name: Update and upgrade apt packages
