@@ -646,6 +646,7 @@
         - { name: "ANDROID_HOME", value: "$HOME/.local/Android" }
         - { name: "ANDROID_NDK_HOME", value: "$HOME/.local/Android/ndk-bundle" }
 #        - { name: "JDK_JAVA_OPTIONS", value: "-Dawt.useSystemAAFontSettings=lcd -XX:+IgnoreUnrecognizedVMOptions -XX:+UnlockExperimentalVMOptions" }
+        - { name: "__EGL_VENDOR_LIBRARY_FILENAMES", value: "/usr/share/glvnd/egl_vendor.d/50_mesa.json" } # https://github.com/NVIDIA/egl-wayland/issues/41
 
     
     - name: sudo on Wayland
