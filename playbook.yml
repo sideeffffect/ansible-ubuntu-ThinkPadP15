@@ -37,11 +37,7 @@
 ##        - url: https://addons.mozilla.org/en-US/firefox/addon/neutral-reddit-masstagger
 ##        - url: https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi
 ##        - url: https://addons.mozilla.org/en-US/firefox/addon/zoom-new-scheduler/
-##        - url: https://addons.mozilla.org/en-US/firefox/addon/facebook-container/
-##        - url: https://addons.mozilla.org/en-US/firefox/addon/google-container/
-##        - url: https://addons.mozilla.org/en-US/firefox/addon/twitter-container/
-##        - url: https://addons.mozilla.org/en-US/firefox/addon/contain-amazon/
-##        - url: https://addons.mozilla.org/en-US/firefox/addon/contain-reddit/
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/plaintext-offenders/
 ##        - url: https://addons.mozilla.org/en-US/firefox/addon/notifier-for-github/
 ##        - url: https://addons.mozilla.org/en-US/firefox/addon/refined-github-/
 ##        - url: https://addons.mozilla.org/en-US/firefox/addon/github-file-icons/
@@ -171,6 +167,7 @@
       - gnome-tweaks
       - golang-docker-credential-helpers
       - google-chrome-stable
+      - google-cloud-cli
       - grub-efi-amd64-signed
       - gstreamer1.0-packagekit
       - gstreamer1.0-vaapi
@@ -210,7 +207,7 @@
       - network-manager-openvpn-gnome
       - network-manager-ssh-gnome
       - nodejs
-      - npm                 # Scala.js, F# fable
+#      - npm                 # Scala.js, F# fable; installed as part of node
       - openjdk-8-doc
       - openjdk-8-jdk
       - openjdk-8-source
@@ -223,6 +220,8 @@
       - openjfx
       - pgadmin4
       - picard
+      - podman
+      - python3-libnvinfer-dev    # ccp-crypto
       - python3-pip
       - python3-venv
       - qemu-kvm
@@ -252,6 +251,7 @@
       - vlc
       - xinput
 #      - zlib1g-dev          # Haskell/GHC/Stack
+      - zoom
     packages_repos:
       - repo: deb http://cz.archive.ubuntu.com/ubuntu jammy           main universe restricted multiverse
       - repo: deb http://cz.archive.ubuntu.com/ubuntu jammy-updates   main universe restricted multiverse
@@ -284,8 +284,18 @@
       - repo: deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all
       - repo: deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy pgadmin4 main
         key: "https://www.pgadmin.org/static/packages_pgadmin_org.pub"
-      - repo: deb http://download.opensuse.org/repositories/home:/erigas:/cpupower-gui/xUbuntu_21.10/ /
-        key: "https://download.opensuse.org/repositories/home:erigas:cpupower-gui/xUbuntu_21.10/Release.key"
+#      - repo: deb http://download.opensuse.org/repositories/home:/erigas:/cpupower-gui/xUbuntu_21.10/ /
+#        key: "https://download.opensuse.org/repositories/home:erigas:cpupower-gui/xUbuntu_21.10/Release.key"
+      - repo: deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/unstable/xUbuntu_22.04/ /
+        key: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/unstable/xUbuntu_22.04/Release.key"
+      - repo: deb https://packages.cloud.google.com/apt cloud-sdk main
+        key: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+      - repo: deb https://deb.nodesource.com/node_18.x jammy main
+        key: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+      - repo: deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /
+        key: "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-archive-keyring.gpg"
+      - repo: deb https://mirror.mwt.me/my/deb any zoom
+        key: "https://mirror.mwt.me/my/gpgkey"
 
   pre_tasks:
     - name: Update and upgrade apt packages
@@ -483,6 +493,7 @@
         - ".vscode"
         - ".metals"
         - ".bloop"
+        - ".bleep"
         - "metals.sbt"
         - "idea-bloop.sbt"
         - ".bsp"
@@ -578,7 +589,7 @@
         name: youtube-dl
         state: latest
         executable: pip
-    
+
     - name: Autostart applications -- global
       copy:
         src: /usr/share/applications/{{ item }}.desktop
@@ -591,7 +602,15 @@
         - rhythmbox
         - signal-desktop
         - slack
-    
+        - Zoom
+
+#    - name: Autostart applications -- flatpak
+#      copy:
+#        src: "{{ item }}"
+#        dest: ~/.config/autostart/
+#      with_items:
+#        - /var/lib/flatpak/app/us.zoom.Zoom/current/active/export/share/applications/us.zoom.Zoom.desktop
+
 #    - name: Autostart applications -- local
 #      copy:
 #        src: ~/.local/share/applications/{{ item }}.desktop
@@ -647,6 +666,7 @@
         - { name: "ANDROID_NDK_HOME", value: "$HOME/.local/Android/ndk-bundle" }
 #        - { name: "JDK_JAVA_OPTIONS", value: "-Dawt.useSystemAAFontSettings=lcd -XX:+IgnoreUnrecognizedVMOptions -XX:+UnlockExperimentalVMOptions" }
         - { name: "__EGL_VENDOR_LIBRARY_FILENAMES", value: "/usr/share/glvnd/egl_vendor.d/50_mesa.json" } # https://github.com/NVIDIA/egl-wayland/issues/41
+        - { name: "MOZ_ENABLE_WAYLAND", value: "1" }
 
     
     - name: sudo on Wayland
