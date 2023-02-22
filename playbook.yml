@@ -191,8 +191,10 @@
       - libreoffice
       - libreoffice-help-cs
       - libreoffice-l10n-cs
+      - libstdc++-12-dev    # Scala Native
 #      - libtinfo-dev        # Haskell/GHC/Stack
 #      - libunwind8          # .NET core
+      - libuv1-dev          # Scala Native
       - libxcb-xtest0       # Zoom client
       - libxml-xpath-perl   #ctstream
       - libxml2-utils
