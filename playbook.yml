@@ -42,6 +42,7 @@
 ##        - url: https://addons.mozilla.org/en-US/firefox/addon/refined-github-/
 ##        - url: https://addons.mozilla.org/en-US/firefox/addon/github-file-icons/
 ##        - url: https://addons.mozilla.org/en-US/firefox/addon/old-reddit-redirect/
+##        - url: https://addons.mozilla.org/en-US/firefox/addon/youtube-nonstop/
 #      prefs:
 #        - name: toolkit.cosmeticAnimations.enabled
 #          value: false
@@ -99,6 +100,8 @@
 #          value: true
 #        - name: widget.wayland_vsync.enabled
 #          value: true
+#        - name: media.autoplay.blocking_policy
+#          value: 2
 #      styles:
 ##        - https://userstyles.org/styles/141833/userstyles-dark-2017
 ##        - https://userstyles.org/styles/133890/dark-hackernews
@@ -179,6 +182,7 @@
       - jp
       - jq
       - latexmk
+      - libclang-17-dev     # sn-bindgen
       - libgc-dev           # Scala Native
 #      - libgmp-dev          # Haskell/GHC/Stack
       - libgtop2-dev
@@ -271,7 +275,7 @@
         key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823"
       - repo: deb https://dl.google.com/linux/chrome/deb/ stable main
         key: "https://dl.google.com/linux/linux_signing_key.pub"
-      - repo: deb https://download.vscodium.com/debs vscodium main
+      - repo: deb https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main
         key: "https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg"
 #      - repo: deb https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main
 #        key: "https://packages.microsoft.com/keys/microsoft.asc"
@@ -298,6 +302,8 @@
         key: "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-archive-keyring.gpg"
       - repo: deb https://mirror.mwt.me/my/deb any zoom
         key: "https://mirror.mwt.me/my/gpgkey"
+      - repo: deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-17 main
+        key: "https://apt.llvm.org/llvm-snapshot.gpg.key"
 
   pre_tasks:
     - name: Update and upgrade apt packages
@@ -669,6 +675,10 @@
 #        - { name: "JDK_JAVA_OPTIONS", value: "-Dawt.useSystemAAFontSettings=lcd -XX:+IgnoreUnrecognizedVMOptions -XX:+UnlockExperimentalVMOptions" }
         - { name: "__EGL_VENDOR_LIBRARY_FILENAMES", value: "/usr/share/glvnd/egl_vendor.d/50_mesa.json" } # https://github.com/NVIDIA/egl-wayland/issues/41
         - { name: "MOZ_ENABLE_WAYLAND", value: "1" }
+        - { name: "MOZ_X11_EGL", value: "1" }
+#        - { name: "LIBVA_DRIVER_NAME", value: "nvidia" }
+        - { name: "MOZ_DISABLE_RDD_SANDBOX", value: "1" }
+        - { name: "EGL_PLATFORM", value: "wayland" }
 
     
     - name: sudo on Wayland
