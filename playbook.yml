@@ -287,7 +287,8 @@
         key: "https://packages.adoptium.net/artifactory/api/gpg/key/public"
       - repo: deb https://packagecloud.io/slacktechnologies/slack/debian jessie main # published only for debian/jessie
         key: "https://packagecloud.io/slacktechnologies/slack/gpgkey"
-      - repo: deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all
+      - repo: deb https://packages.konghq.com/public/insomnia/deb/ubuntu jammy main
+        key: "https://packages.konghq.com/public/insomnia/gpg.474B9148D779222B.key"
       - repo: deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy pgadmin4 main
         key: "https://www.pgadmin.org/static/packages_pgadmin_org.pub"
 #      - repo: deb http://download.opensuse.org/repositories/home:/erigas:/cpupower-gui/xUbuntu_21.10/ /
@@ -300,8 +301,8 @@
         key: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
       - repo: deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /
         key: "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-archive-keyring.gpg"
-      - repo: deb https://mirror.mwt.me/my/deb any zoom
-        key: "https://mirror.mwt.me/my/gpgkey"
+      - repo: deb https://mirror.mwt.me/zoom/deb any main
+        key: "https://mirror.mwt.me/zoom/gpgkey"
       - repo: deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-17 main
         key: "https://apt.llvm.org/llvm-snapshot.gpg.key"
 
@@ -646,6 +647,11 @@
 #      command: omf install bobthefish ; omf theme bobthefish
 #      args:
 #        creates: ~/.local/share/omf/themes/bobthefish
+
+    - name: Rye -- install
+      shell: curl -sSf https://rye.astral.sh/get | RYE_INSTALL_OPTION="--yes" bash
+      args:
+        creates: ~/.rye/shims/rye
     
     - name: Bin directories -- in PATH
       lineinfile:
@@ -661,6 +667,7 @@
         - "$HOME/.local/idea/bin"
         - "$HOME/.local/share/coursier/bin"
         - "$HOME/.pulumi/bin"
+        - "$HOME/.rye/shims"
 
     - name: Environment variables
       lineinfile:
