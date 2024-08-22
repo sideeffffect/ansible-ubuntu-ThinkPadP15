@@ -102,6 +102,8 @@
 #          value: true
 #        - name: media.autoplay.blocking_policy
 #          value: 2
+#        - name: dom.private-attribution.submission.enabled
+#          value: false
 #      styles:
 ##        - https://userstyles.org/styles/141833/userstyles-dark-2017
 ##        - https://userstyles.org/styles/133890/dark-hackernews
