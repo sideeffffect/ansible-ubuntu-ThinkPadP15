@@ -127,6 +127,7 @@
       - aptitude
       - aspell-cs
       - bash-completion
+      - bruno
       - chrome-gnome-shell
       - clang                   # Scala Native
       - codium                  # Visual Studio Code
@@ -180,7 +181,6 @@
       - heimdall-flash-frontend
       - hunspell-cs
       - hyphen-cs
-      - insomnia
       - jp
       - jq
       - latexmk
@@ -289,8 +289,8 @@
         key: "https://packages.adoptium.net/artifactory/api/gpg/key/public"
       - repo: deb https://packagecloud.io/slacktechnologies/slack/debian jessie main # published only for debian/jessie
         key: "https://packagecloud.io/slacktechnologies/slack/gpgkey"
-      - repo: deb https://packages.konghq.com/public/insomnia/deb/ubuntu jammy main
-        key: "https://packages.konghq.com/public/insomnia/gpg.474B9148D779222B.key"
+      - repo: deb http://debian.usebruno.com/ bruno stable
+        key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xe598552e09c999055fefa7159fa6017ecabe0266"
       - repo: deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy pgadmin4 main
         key: "https://www.pgadmin.org/static/packages_pgadmin_org.pub"
 #      - repo: deb http://download.opensuse.org/repositories/home:/erigas:/cpupower-gui/xUbuntu_21.10/ /
