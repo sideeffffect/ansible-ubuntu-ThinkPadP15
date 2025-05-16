@@ -229,6 +229,7 @@
       - pgadmin4
       - picard
       - podman
+      - power-profiles-daemon
       - python3-libnvinfer-dev    # ccp-crypto
       - python3-pip
       - python3-venv
