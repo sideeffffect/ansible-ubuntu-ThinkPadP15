@@ -300,8 +300,8 @@
         key: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/unstable/xUbuntu_22.04/Release.key"
       - repo: deb https://packages.cloud.google.com/apt cloud-sdk main
         key: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
-      - repo: deb https://deb.nodesource.com/node_18.x jammy main
-        key: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+      - repo: deb https://deb.nodesource.com/node_22.x nodistro main
+        key: "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key"
       - repo: deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /
         key: "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-archive-keyring.gpg"
       - repo: deb https://mirror.mwt.me/zoom/deb any main
@@ -676,6 +676,7 @@
         - "$HOME/.local/share/coursier/bin"
         - "$HOME/.pulumi/bin"
         - "$HOME/.rye/shims"
+        - "$HOME/.npm-global/bin"
 
     - name: Environment variables
       lineinfile:
@@ -694,6 +695,7 @@
 #        - { name: "LIBVA_DRIVER_NAME", value: "nvidia" }
         - { name: "MOZ_DISABLE_RDD_SANDBOX", value: "1" }
         - { name: "EGL_PLATFORM", value: "wayland" }
+        - { name: "NPM_CONFIG_PREFIX", value: "~/.npm-global" }
 
     
     - name: sudo on Wayland
