@@ -286,8 +286,8 @@
         key: "https://updates.signal.org/desktop/apt/keys.asc"
 #      - repo: deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian jammy contrib
 #        key: "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
-      - repo: deb https://packages.adoptium.net/artifactory/deb jammy main
-        key: "https://packages.adoptium.net/artifactory/api/gpg/key/public"
+#      - repo: deb https://packages.adoptium.net/artifactory/deb jammy main
+#        key: "https://packages.adoptium.net/artifactory/api/gpg/key/public"
       - repo: deb https://packagecloud.io/slacktechnologies/slack/debian jessie main # published only for debian/jessie
         key: "https://packagecloud.io/slacktechnologies/slack/gpgkey"
       - repo: deb http://debian.usebruno.com/ bruno stable
@@ -689,12 +689,12 @@
         - { name: "ANDROID_HOME", value: "$HOME/.local/Android" }
         - { name: "ANDROID_NDK_HOME", value: "$HOME/.local/Android/ndk-bundle" }
 #        - { name: "JDK_JAVA_OPTIONS", value: "-Dawt.useSystemAAFontSettings=lcd -XX:+IgnoreUnrecognizedVMOptions -XX:+UnlockExperimentalVMOptions" }
-        - { name: "__EGL_VENDOR_LIBRARY_FILENAMES", value: "/usr/share/glvnd/egl_vendor.d/50_mesa.json" } # https://github.com/NVIDIA/egl-wayland/issues/41
-        - { name: "MOZ_ENABLE_WAYLAND", value: "1" }
-        - { name: "MOZ_X11_EGL", value: "1" }
+#        - { name: "__EGL_VENDOR_LIBRARY_FILENAMES", value: "/usr/share/glvnd/egl_vendor.d/50_mesa.json" } # https://github.com/NVIDIA/egl-wayland/issues/41
+#        - { name: "MOZ_ENABLE_WAYLAND", value: "1" }
+#        - { name: "MOZ_X11_EGL", value: "1" }
 #        - { name: "LIBVA_DRIVER_NAME", value: "nvidia" }
-        - { name: "MOZ_DISABLE_RDD_SANDBOX", value: "1" }
-        - { name: "EGL_PLATFORM", value: "wayland" }
+#        - { name: "MOZ_DISABLE_RDD_SANDBOX", value: "1" }
+#        - { name: "EGL_PLATFORM", value: "wayland" }
         - { name: "NPM_CONFIG_PREFIX", value: "~/.npm-global" }
 
     
