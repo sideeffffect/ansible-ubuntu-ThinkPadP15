@@ -458,7 +458,13 @@
       file:
         path: '~/.config/fontconfig'
         state: directory
-    
+
+    - name: Fonts -- 0xProto Nerd -- download
+      unarchive:
+        src: 'https://github.com/ryanoasis/nerd-fonts/releases/latest/download/0xProto.zip'
+        dest: '~/.local/share/fonts/'
+        remote_src: yes
+
     - name: Fonts -- fonts.conf
       copy:
         content: |
@@ -509,6 +515,7 @@
         - "metals.sbt"
         - "idea-bloop.sbt"
         - ".bsp"
+        - ".scala-build"
 
     - name: Bin directories -- present
       file:
