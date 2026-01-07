@@ -207,7 +207,6 @@
       - liferea
       - locate
       - mesa-utils
-#      - mono-complete
       - mp3splt
       - mtr-tiny
       - mythes-cs
@@ -215,13 +214,9 @@
       - network-manager-openvpn-gnome
       - network-manager-ssh-gnome
       - nodejs
-#      - npm                 # Scala.js, F# fable; installed as part of node
       - openjdk-8-doc
       - openjdk-8-jdk
       - openjdk-8-source
-      - openjdk-11-doc
-      - openjdk-11-jdk
-      - openjdk-11-source
       - openjdk-17-doc
       - openjdk-17-jdk
       - openjdk-17-source
@@ -262,18 +257,16 @@
 #      - zlib1g-dev          # Haskell/GHC/Stack
       - zoom
     packages_repos:
-      - repo: deb http://cz.archive.ubuntu.com/ubuntu jammy           main universe restricted multiverse
-      - repo: deb http://cz.archive.ubuntu.com/ubuntu jammy-updates   main universe restricted multiverse
-      - repo: deb http://cz.archive.ubuntu.com/ubuntu jammy-backports main universe restricted multiverse
-      - repo: deb http://security.ubuntu.com/ubuntu   jammy-security  main universe restricted multiverse
+      - repo: deb http://cz.archive.ubuntu.com/ubuntu noble           main universe restricted multiverse
+      - repo: deb http://cz.archive.ubuntu.com/ubuntu noble-updates   main universe restricted multiverse
+      - repo: deb http://cz.archive.ubuntu.com/ubuntu noble-backports main universe restricted multiverse
+      - repo: deb http://security.ubuntu.com/ubuntu   noble-security  main universe restricted multiverse
 
-      - repo: deb-src http://cz.archive.ubuntu.com/ubuntu jammy           main universe restricted multiverse
-      - repo: deb-src http://cz.archive.ubuntu.com/ubuntu jammy-updates   main universe restricted multiverse
-      - repo: deb-src http://cz.archive.ubuntu.com/ubuntu jammy-backports main universe restricted multiverse
-      - repo: deb-src http://security.ubuntu.com/ubuntu   jammy-security  main universe restricted multiverse
+      - repo: deb-src http://cz.archive.ubuntu.com/ubuntu noble           main universe restricted multiverse
+      - repo: deb-src http://cz.archive.ubuntu.com/ubuntu noble-updates   main universe restricted multiverse
+      - repo: deb-src http://cz.archive.ubuntu.com/ubuntu noble-backports main universe restricted multiverse
+      - repo: deb-src http://security.ubuntu.com/ubuntu   noble-security  main universe restricted multiverse
 
-#      - repo: deb http://download.mono-project.com/repo/debian wheezy main
-#        key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
       - repo: deb https://repo.scala-sbt.org/scalasbt/debian all main
         key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823"
       - repo: deb https://dl.google.com/linux/chrome/deb/ stable main
@@ -284,29 +277,27 @@
 #        key: "https://packages.microsoft.com/keys/microsoft.asc"
       - repo: deb https://updates.signal.org/desktop/apt xenial main
         key: "https://updates.signal.org/desktop/apt/keys.asc"
-#      - repo: deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian jammy contrib
+#      - repo: deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian noble contrib
 #        key: "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
-#      - repo: deb https://packages.adoptium.net/artifactory/deb jammy main
-#        key: "https://packages.adoptium.net/artifactory/api/gpg/key/public"
-      - repo: deb https://packagecloud.io/slacktechnologies/slack/debian jessie main # published only for debian/jessie
+      - repo: deb https://packagecloud.io/slacktechnologies/slack/ubuntu/ noble main
         key: "https://packagecloud.io/slacktechnologies/slack/gpgkey"
       - repo: deb http://debian.usebruno.com/ bruno stable
         key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xe598552e09c999055fefa7159fa6017ecabe0266"
-      - repo: deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy pgadmin4 main
+      - repo: deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/noble pgadmin4 main
         key: "https://www.pgadmin.org/static/packages_pgadmin_org.pub"
 #      - repo: deb http://download.opensuse.org/repositories/home:/erigas:/cpupower-gui/xUbuntu_21.10/ /
 #        key: "https://download.opensuse.org/repositories/home:erigas:cpupower-gui/xUbuntu_21.10/Release.key"
-      - repo: deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/unstable/xUbuntu_22.04/ /
-        key: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/unstable/xUbuntu_22.04/Release.key"
+      - repo: deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/unstable/xUbuntu_24.04/ /
+        key: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/unstable/xUbuntu_24.04/Release.key"
       - repo: deb https://packages.cloud.google.com/apt cloud-sdk main
         key: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
-      - repo: deb https://deb.nodesource.com/node_22.x nodistro main
+      - repo: deb https://deb.nodesource.com/node_24.x nodistro main
         key: "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key"
-      - repo: deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /
-        key: "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-archive-keyring.gpg"
+#      - repo: deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /
+#        key: "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-archive-keyring.gpg"
       - repo: deb https://mirror.mwt.me/zoom/deb any main
         key: "https://mirror.mwt.me/zoom/gpgkey"
-      - repo: deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-17 main
+      - repo: deb http://apt.llvm.org/noble/ llvm-toolchain-noble-17 main
         key: "https://apt.llvm.org/llvm-snapshot.gpg.key"
 
   pre_tasks:
