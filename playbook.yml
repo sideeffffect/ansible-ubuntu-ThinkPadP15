@@ -225,7 +225,7 @@
       - picard
       - podman
       - power-profiles-daemon
-      - python3-libnvinfer-dev    # ccp-crypto
+#      - python3-libnvinfer-dev    # ccp-crypto -- needs NVIDIA CUDA repo (see below), not currently enabled
       - python3-pip
       - python3-venv
       - qemu-kvm
@@ -237,6 +237,7 @@
       - slack-desktop
       - sudo
       - synaptic
+      - tailscale
       - texlive
       - texlive-lang-czechslovak
       - texlive-lang-english
@@ -247,7 +248,7 @@
       - tree
       - unrar
       - vanilla-gnome-default-settings
-      - vanilla-gnome-desktop
+#      - vanilla-gnome-desktop    # depends on pulseaudio, which conflicts with pipewire (noble default)
       - vim-nox
       - virt-manager
 #      - virtualbox-6.0
@@ -279,7 +280,7 @@
         key: "https://updates.signal.org/desktop/apt/keys.asc"
 #      - repo: deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian noble contrib
 #        key: "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
-      - repo: deb https://packagecloud.io/slacktechnologies/slack/ubuntu/ noble main
+      - repo: deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main
         key: "https://packagecloud.io/slacktechnologies/slack/gpgkey"
       - repo: deb http://debian.usebruno.com/ bruno stable
         key: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xe598552e09c999055fefa7159fa6017ecabe0266"
@@ -299,6 +300,8 @@
         key: "https://mirror.mwt.me/zoom/gpgkey"
       - repo: deb http://apt.llvm.org/noble/ llvm-toolchain-noble-17 main
         key: "https://apt.llvm.org/llvm-snapshot.gpg.key"
+      - repo: deb https://pkgs.tailscale.com/stable/ubuntu noble main
+        key: "https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg"
 
   pre_tasks:
     - name: Update and upgrade apt packages
@@ -388,7 +391,6 @@
         - org.gnome.gedit.preferences.editor auto-indent true
         - org.gnome.gedit.preferences.editor bracket-matching true
         - org.gnome.gedit.preferences.editor display-line-numbers true
-        - org.gnome.gedit.preferences.editor display-overview-map true
         - org.gnome.gedit.preferences.editor display-right-margin true
         - org.gnome.gedit.preferences.editor highlight-current-line true
         - org.gnome.gedit.preferences.editor insert-spaces true
@@ -593,26 +595,24 @@
           }
         dest: ~/.config/VSCodium/User/settings.json
 
-    - name: youtube-dl -- install with pip (Python)
-      become: yes
-      pip:
-        name: youtube-dl
+    - name: yt-dlp -- install/upgrade with pipx (user)
+      community.general.pipx:
+        name: yt-dlp
         state: latest
-        executable: pip
 
     - name: Autostart applications -- global
       copy:
-        src: /usr/share/applications/{{ item }}.desktop
+        src: "{{ item }}"
         dest: ~/.config/autostart/
       with_items:
-        - org.gnome.Evolution
-        - firefox
-        - guake
-        - net.sourceforge.liferea
-        - rhythmbox
-        - signal-desktop
-        - slack
-        - Zoom
+        - /usr/share/applications/org.gnome.Evolution.desktop
+        - /var/lib/snapd/desktop/applications/firefox_firefox.desktop   # firefox is a snap
+        - /usr/share/applications/guake.desktop
+        - /usr/share/applications/net.sourceforge.liferea.desktop
+        - /usr/share/applications/org.gnome.Rhythmbox3.desktop
+        - /usr/share/applications/signal-desktop.desktop
+        - /usr/share/applications/slack.desktop
+        - /usr/share/applications/Zoom.desktop
 
 #    - name: Autostart applications -- flatpak
 #      copy:
