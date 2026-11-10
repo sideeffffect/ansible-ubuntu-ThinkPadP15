@@ -142,6 +142,7 @@
       - docker.io
       - docker-compose
 #      - dotnet-sdk-2.1.4    # .NET core
+      - earlyoom              # kill the biggest process instead of freezing on OOM
       - evolution
       - exuberant-ctags       # Python language server
       - fasd
@@ -349,6 +350,47 @@
         daemon_reload: yes
         name: tmp.mount
         enabled: yes
+
+    - name: OOM -- earlyoom -- config
+      become: yes
+      copy:
+        dest: /etc/default/earlyoom
+        content: |
+          # Kill the biggest process at <= 4% available RAM (SIGKILL at <= 2%), instead of freezing.
+          # No spaces/quotes in the regex: systemd splits $EARLYOOM_ARGS on whitespace.
+          EARLYOOM_ARGS="-m 4 -r 3600 --avoid ^(gnome-shell|Xwayland|systemd|systemd-.*|sshd|pipewire|wireplumber|earlyoom)$"
+      register: earlyoom_config
+
+    - name: OOM -- earlyoom -- enable and start
+      become: yes
+      systemd:
+        name: earlyoom
+        enabled: yes
+        state: "{{ 'restarted' if earlyoom_config is changed else 'started' }}"
+
+    - name: OOM -- MGLRU -- protect 1s working set from thrashing (tmpfiles)
+      become: yes
+      copy:
+        dest: /etc/tmpfiles.d/mglru-min-ttl.conf
+        content: |
+          w /sys/kernel/mm/lru_gen/min_ttl_ms - - - - 1000
+      register: mglru_tmpfiles
+
+    - name: OOM -- MGLRU -- apply now
+      become: yes
+      command: systemd-tmpfiles --create /etc/tmpfiles.d/mglru-min-ttl.conf
+      when: mglru_tmpfiles is changed
+
+    - name: OOM -- systemd-oomd -- disable and mask (earlyoom replaces it)
+      become: yes
+      systemd:
+        name: "{{ item }}"
+        enabled: no
+        masked: yes
+        state: stopped
+      loop:
+        - systemd-oomd.socket
+        - systemd-oomd.service
 
     - name: Download AnotherCountrySunset wallpaper
       get_url:
