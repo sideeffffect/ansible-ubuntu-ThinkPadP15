@@ -576,6 +576,11 @@
           ThisBuild / turbo := true
         dest: "~/.sbt/1.0/build.sbt"
 
+    - name: IntelliJ -- applications directory
+      file:
+        path: '~/.local/share/applications'
+        state: directory
+
     - name: IntelliJ -- .desktop file
       copy:
         content: |
@@ -697,6 +702,11 @@
       shell: curl -sSf https://rye.astral.sh/get | RYE_INSTALL_OPTION="--yes" bash
       args:
         creates: ~/.rye/shims/rye
+
+    - name: Rye -- fish completions directory
+      file:
+        path: '~/.config/fish/completions'
+        state: directory
 
     - name: Rye -- fish autocompletions
       shell: rye self completion -s fish > ~/.config/fish/completions/rye.fish
