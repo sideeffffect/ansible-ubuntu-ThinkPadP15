@@ -169,7 +169,9 @@
       - glances
       - gnome-session
       - gnome-shell-extension-manager
+      - gnome-shell-extensions  # gsettings: auto-move-windows
       - gnome-software-plugin-flatpak
+      - gnome-terminal          # gsettings: org.gnome.Terminal.Legacy.Settings
       - gnome-themes-extra
       - gnome-tweaks
       - golang-docker-credential-helpers
