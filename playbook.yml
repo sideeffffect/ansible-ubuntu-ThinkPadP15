@@ -762,6 +762,7 @@
         mode: u+x
     
     - name: Flatpack -- add Flathub
+      become: yes
       command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
       args:
         creates: /var/lib/flatpak/appstream/flathub
