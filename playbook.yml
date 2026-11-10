@@ -156,7 +156,7 @@
 #      - fsharp
       - fwupd
       - fwupd-signed
-      - gconf2
+#      - gconf2              # not in Ubuntu 24.04
       - gdm3
       - gedit-plugin-draw-spaces
       - gedit-plugin-git
