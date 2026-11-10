@@ -46,6 +46,9 @@ jobs:
         run: |
           # The "Autostart applications" task copies the Firefox snap's .desktop file.
           sudo snap install firefox
+          # Ubuntu Desktop ships systemd-oomd (the playbook masks it); the runner image does not.
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y systemd-oomd
+          systemctl is-active systemd-oomd
           mkdir -p ~/Pictures
 
       - name: Apply playbook
