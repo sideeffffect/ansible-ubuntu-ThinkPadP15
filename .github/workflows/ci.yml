@@ -35,7 +35,12 @@ jobs:
         run: |
           sudo apt-get update
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y ansible dbus
+          # The runner image also has a newer ansible-core from pipx (/opt/pipx_bin), earlier in PATH.
+          sudo pipx uninstall ansible-core || true
+          sudo rm -f /opt/pipx_bin/ansible*
+          hash -r
           ansible --version
+          ansible --version | grep -q 'python module location = /usr/lib/python3/dist-packages/ansible'
 
       - name: Prerequisites that exist on the laptop but not on the runner
         run: |
