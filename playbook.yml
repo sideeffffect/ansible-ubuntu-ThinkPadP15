@@ -709,7 +709,7 @@
         state: directory
 
     - name: Rye -- fish autocompletions
-      shell: rye self completion -s fish > ~/.config/fish/completions/rye.fish
+      shell: ~/.rye/shims/rye self completion -s fish > ~/.config/fish/completions/rye.fish
       args:
         creates: ~/.config/fish/completions/rye.fish
     
