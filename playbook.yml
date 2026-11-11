@@ -156,7 +156,7 @@
 #      - fsharp
       - fwupd
       - fwupd-signed
-      - gconf2
+#      - gconf2              # not in Ubuntu 24.04
       - gdm3
       - gedit-plugin-draw-spaces
       - gedit-plugin-git
@@ -169,7 +169,9 @@
       - glances
       - gnome-session
       - gnome-shell-extension-manager
+      - gnome-shell-extensions  # gsettings: auto-move-windows
       - gnome-software-plugin-flatpak
+      - gnome-terminal          # gsettings: org.gnome.Terminal.Legacy.Settings
       - gnome-themes-extra
       - gnome-tweaks
       - golang-docker-credential-helpers
@@ -574,6 +576,11 @@
           ThisBuild / turbo := true
         dest: "~/.sbt/1.0/build.sbt"
 
+    - name: IntelliJ -- applications directory
+      file:
+        path: '~/.local/share/applications'
+        state: directory
+
     - name: IntelliJ -- .desktop file
       copy:
         content: |
@@ -696,8 +703,13 @@
       args:
         creates: ~/.rye/shims/rye
 
+    - name: Rye -- fish completions directory
+      file:
+        path: '~/.config/fish/completions'
+        state: directory
+
     - name: Rye -- fish autocompletions
-      shell: rye self completion -s fish > ~/.config/fish/completions/rye.fish
+      shell: ~/.rye/shims/rye self completion -s fish > ~/.config/fish/completions/rye.fish
       args:
         creates: ~/.config/fish/completions/rye.fish
     
@@ -750,6 +762,7 @@
         mode: u+x
     
     - name: Flatpack -- add Flathub
+      become: yes
       command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
       args:
         creates: /var/lib/flatpak/appstream/flathub
